@@ -6,7 +6,7 @@ input_age = float(input("Введите ваш возраст (полное ко
 # BMI calculation and printing of the result.
 BMI = round(input_weight/(input_height**2/10000))
 # Verification of inserted user's data.
-if (input_gender == str('женский') or input_gender == str('мужской')) and (BMI > 16 and BMI < 40 and input_age < 80 and input_age > 15):
+if (input_gender == str('женский') or input_gender == str('мужской')) and (BMI >= 16 and BMI <= 40 and input_age <= 80 and input_age >= 15):
     print("Ваш индекс массы тела (кг/м^2):" + str(BMI))
 # Printing of the scale.
     list1 = '16=======================40'
