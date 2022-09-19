@@ -29,8 +29,6 @@ while True:
         print("Please insert data as it is discribed at the very beggining. ('u', 'd', 'l', or 'r' -> space -> q-ty of steps)")\
 # Calculation of robot's route.
 import math
-from math import fabs
-# Adding module to calculation for cases when routes "down" and "left" are bigger than "up" and "right" or when "up" and "right" are zero.
-length_route = math.sqrt(fabs((steps['u']**2 - steps['d']**2)) + fabs((steps['r']**2 - steps['l']**2)))
+length_route = math.sqrt((steps['u'] - steps['d'])**2 + (steps['r'] - steps['l'])**2)
 length_route_round = round(length_route)
 print(f"Your robot's route is {length_route_round} meters.")
