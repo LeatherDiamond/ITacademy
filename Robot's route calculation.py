@@ -17,18 +17,18 @@ while True:
         if data_request_list[0] == 'q':
             break
 # Checking value of steps (if it's valid - positive number) and ending the cycle if value is not valid.
-        elif int(data_request_list[1]) < 0:
+        elif int(data_request_list[-1]) < 0:
             print("Quantity of steps must be a positive number!")
-            break
+            break 
 # Making the list with input data.
         command = data_request_list[0]
         command_value = int(data_request_list[-1])
         steps[command] = steps[command] + command_value
-# Calculation of robot's route.
-        import math
-        length_route = math.sqrt((steps['u'] - steps['d'])**2 + (steps['r'] - steps['l'])**2)
-        length_route_round = round(length_route)
-        print(f"Your robot's route is {length_route_round} meters.")
 #Printing the message if input data is not valid. 
     except:
-        print("Please insert data as it is discribed at the very beggining. ('u', 'd', 'l', or 'r' -> space -> q-ty of steps)")
+        print("Please insert data as it is discribed at the very beggining. ('u', 'd', 'l', or 'r' -> space -> q-ty of steps)")\
+# Calculation of robot's route.
+import math
+length_route = math.sqrt((steps['u'] - steps['d'])**2 + (steps['r'] - steps['l'])**2)
+length_route_round = round(length_route)
+print(f"Your robot's route is {length_route_round} meters.")
