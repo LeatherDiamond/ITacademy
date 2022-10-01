@@ -138,6 +138,6 @@ while True:
         print(l3[0:15] + l3[16:33] + l3[34:])
         print(l4[0:15] + l4[16:33] + l4[34:])
         print(l5[0:15] + l5[16:33] + l5[34:])
-        time.sleep(0.2)
+        time.sleep(0.1)
         os.system('cls')
     main()

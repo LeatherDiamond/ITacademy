@@ -82,14 +82,14 @@ def format_share_time(time_str):
         for i in time_str:
             output_numbers.append(time_numbers[i])
     except:
-        print('Fuck')
+        print('Error!')
     for i in output_numbers:
         conver_to_list.append(i.split('\n'))
     return conver_to_list
 
 
 def replace_string(string_for_replace):
-#Function to replace emoty separator from dictionary to black squares.
+#Function to replace empty separator from dictionary to black squares.
     result = string_for_replace
     result[2] = '⬛'
     result[5] = '⬛'
