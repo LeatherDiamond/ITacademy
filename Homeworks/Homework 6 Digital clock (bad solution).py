@@ -1,6 +1,7 @@
 import datetime
 import time
 import os
+
 numbers = {
      '0': ['XXXX',
            'X  X',
@@ -58,14 +59,15 @@ numbers = {
            ' X  ',
            ' X  '],
 }
-#Creating a function and a cycle.
+
+
 while True:
+    """Creating a function and a cycle."""
     def main():
         cdt = datetime.datetime.now().time()
         cdt = cdt.strftime("%H:%M:%S")
-# Clearing the console.
-       
-#Printing clock with modified symbols (string by string).
+
+        """Printing clock with modified symbols (string by string)."""
         l1 = ''
         l2 = ''
         l3 = ''
