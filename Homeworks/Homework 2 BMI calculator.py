@@ -1,18 +1,22 @@
-# Request of necessary data from user.
+"""Request of necessary data from user."""
 input_height = float(input("Введите ваш рост (см):"))
 input_weight = float(input("Введите вашу массу тела (кг):"))
 input_gender = str(input("Введите ваш пол (мужской, женский):"))
 input_age = float(input("Введите ваш возраст (полное кол-во лет):"))
-# BMI calculation and printing of the result.
+
+"""BMI calculation and printing of the result."""
 BMI = round(input_weight/(input_height**2/10000))
-# Verification of inserted user's data.
+
+"""Verification of inserted user's data."""
 if (input_gender == str('женский') or input_gender == str('мужской')) and (BMI >= 16 and BMI <= 40 and input_age <= 80 and input_age >= 15):
     print("Ваш индекс массы тела (кг/м^2):" + str(BMI))
-# Printing of the scale.
+
+    """Printing of the scale."""
     list1 = '16=======================40'
     list2 = list1[0:(BMI-15)] + "|" + list1[(BMI-14):]
     print(list2)
-# Printing recomendations according to gender of user.
+
+    """Printing recomendations according to gender of user."""
     if input_gender == str('женский') and BMI > 16 and BMI < 19:
         print('Дефицит массы тела. Потребляйте больше калорий.')
     elif input_gender == str('женский') and BMI > 19 and BMI < 25:
@@ -25,7 +29,8 @@ if (input_gender == str('женский') or input_gender == str('мужской
         print('У вас избыточная масса тела. Усильте физические нагрузки и обратите внимание на питание.')
     elif input_gender == str('мужской') and BMI > 30:
         print('У вас ожирение. Обратиетьс к специалисту для составления персональной диеты и усильте физическую активность.')
-# Printing recomendations according to age of user.
+
+    """Printing recomendations according to age of user."""
     if input_gender == str('женский') and input_age > 19 and input_age < 25 and BMI == 20:
         print('Ваш ИМТ соответствует вашему возрасту. Поддерживайте баланс питания и физической активности.')
     elif input_gender == str('женский') and input_age > 25 and input_age < 35 and BMI == 24:
