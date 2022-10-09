@@ -1,3 +1,4 @@
+from datetime import timezone
 from django.db import models
 from references.models import BookAuthor
 from references.models import BookSeries
@@ -5,7 +6,6 @@ from references.models import BookGenre
 from references.models import BookPublishingHouse
 
 # Create your models here.
-
 
 class Book(models.Model):
     name = models.CharField(
@@ -16,20 +16,19 @@ class Book(models.Model):
     )
     author = models.ManyToManyField(
         BookAuthor,
-        verbose_name="Author/Authors",
     )
     price = models.DecimalField(
         max_digits=5, 
         decimal_places=2,
         verbose_name="Price"
     )
-    series = models.ManyToManyField(
+    series = models.ForeignKey(
         BookSeries,
         verbose_name="Series",
+        on_delete=models.PROTECT
     )
     genre = models.ManyToManyField(
         BookGenre,
-        verbose_name="Genre",
     )
     publishing_year=models.CharField(
         max_length=11,
@@ -56,9 +55,10 @@ class Book(models.Model):
     age_restriction = models.IntegerField( 
         verbose_name="Age restriction"
     )
-    publishing_house = models.ManyToManyField(
+    publishing_house = models.ForeignKey(
         BookPublishingHouse,
-        verbose_name="Publishing house/Publishing houses"
+        verbose_name="Publishing house",
+        on_delete=models.PROTECT
     )
     available_books = models.IntegerField(
         verbose_name="Available books"
