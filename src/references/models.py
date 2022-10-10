@@ -22,7 +22,8 @@ class BookAuthor(models.Model):
 
 
 class BookSeries(models.Model):
-    book_series = models.IntegerField(
+    book_series = models.CharField(
+        max_length=30,
         verbose_name="Books in series",
     )
     description = models.TextField(
@@ -35,7 +36,7 @@ class BookSeries(models.Model):
 
 
 class BookGenre(models.Model):
-    genre_name = models.TextField(
+    genre_name = models.CharField(
         max_length=30,
         verbose_name="Genre"
     )
@@ -49,7 +50,7 @@ class BookGenre(models.Model):
 
 
 class BookPublishingHouse(models.Model):
-    house_name = models.TextField(
+    house_name = models.CharField(
         max_length=30,
         verbose_name="Publishing house"
     )
