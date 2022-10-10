@@ -20,7 +20,8 @@ class Book(models.Model):
     price = models.DecimalField(
         max_digits=5, 
         decimal_places=2,
-        verbose_name="Price"
+        verbose_name="Price",
+        help_text="Currency in BYN"
     )
     series = models.ForeignKey(
         BookSeries,
