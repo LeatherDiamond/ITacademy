@@ -50,8 +50,9 @@ class Book(models.Model):
         max_length=30,
         verbose_name="ISBN"
     )
-    weight = models.IntegerField( 
-        verbose_name="Weight"
+    weight = models.IntegerField(
+        verbose_name="Weight",
+        help_text="Weight in grams"
     )
     age_restriction = models.IntegerField( 
         verbose_name="Age restriction"
