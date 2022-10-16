@@ -9,7 +9,7 @@ from references.models import BookPublishingHouse
 
 class Book(models.Model):
     name = models.CharField(
-       max_length = 30,
+       max_length = 70,
        verbose_name="Book name"
     )
     image = models.ImageField(
