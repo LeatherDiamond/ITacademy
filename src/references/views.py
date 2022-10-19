@@ -38,7 +38,7 @@ class DeleteAuthor(generic.DeleteView):
 
 #CBV for Series model.
 
-class ShowSeries(generic.ListView):
+class ShowAllSeries(generic.ListView):
     model = models.BookSeries
     template_name = 'references/list_series.html'
 
@@ -66,11 +66,11 @@ class DeleteSeries(generic.DeleteView):
 
 
     def get_success_url(self):
-        return ('/series_list/')
+        return ('/all_series_list/')
 
 #CBV for Genre model.
 
-class ShowGenre(generic.ListView):
+class ShowGenres(generic.ListView):
     model = models.BookGenre
     template_name = 'references/list_genre.html'
 
@@ -102,7 +102,7 @@ class DeleteGenre(generic.DeleteView):
 
 #CBV Publishing house form.
 
-class ShowHouse(generic.ListView):
+class ShowHouses(generic.ListView):
     model = models.BookPublishingHouse
     template_name = 'references/list_house.html'
 

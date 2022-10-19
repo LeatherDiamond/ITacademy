@@ -13,7 +13,7 @@
         {% for obj in object_list %}
         <tr>
             <td><a href="/genre_update/{{obj.pk}}/">{{ obj.pk  }} </a></td>
-            <td>{{ obj.name }}</td>
+            <td>{{ obj.genre_name }}</td>
             <td><a href="/genre_delete/{{obj.pk}}/">DELETE</a></td>
         </tr>
         {% endfor %}

@@ -34,7 +34,7 @@ urlpatterns = [
     path('series_create/', st_views.CreateSeries.as_view()),
     path('series_update/<int:pk>/', st_views.UpdateSeries.as_view()),
     path('series_delete/<int:pk>/', st_views.DeleteSeries.as_view()),
-    path('series_list/', st_views.ShowSeries.as_view()),
+    path('all_series_list/', st_views.ShowAllSeries.as_view()),
 
     #Genres URLs
 
@@ -42,7 +42,7 @@ urlpatterns = [
     path('genre_create/', st_views.CreateGenre.as_view()),
     path('genre_update/<int:pk>/', st_views.UpdateGenre.as_view()),
     path('genre_delete/<int:pk>/', st_views.DeleteGenre.as_view()),
-    path('genres_list/', st_views.ShowGenre.as_view()),
+    path('genres_list/', st_views.ShowGenres.as_view()),
 
     #Publishing houses URLs
 
@@ -50,5 +50,5 @@ urlpatterns = [
     path('house_create/', st_views.CreateHouse.as_view()),
     path('house_update/<int:pk>/', st_views.UpdateHouse.as_view()),
     path('house_delete/<int:pk>/', st_views.DeleteHouse.as_view()),
-    path('houses_list/', st_views.ShowHouse.as_view())
+    path('houses_list/', st_views.ShowHouses.as_view())
 ]

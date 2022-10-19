@@ -9,7 +9,7 @@
 <body>
     <h1>Are you sure that you want to delete the publishing house? Push the "submit" button if you are agree.</h1>
     Publishing house number in the list: {{ object.pk }}<br>
-    Publishing house: {{ object.name }}
+    Publishing house: {{ object.house_name }}<br>
     Description: {{ object.description }}
     <form action="" method="post">
         {% csrf_token %}

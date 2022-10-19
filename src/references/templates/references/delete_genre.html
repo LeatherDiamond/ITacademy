@@ -9,7 +9,7 @@
 <body>
     <h1>Are you sure that you want to delete the book's genre? Push the "submit" button if you are agree.</h1>
     Genre in the list: {{ object.pk }}<br>
-    Genre name: {{ object.name }}
+    Genre name: {{ object.genre_name }}<br>
     Description: {{ object.description }}
     <form action="" method="post">
         {% csrf_token %}
