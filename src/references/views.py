@@ -114,13 +114,13 @@ class ShowHouse(generic.DetailView):
 
 class CreateHouse(generic.CreateView):
     model = models.BookPublishingHouse
-    form_class = forms.HouseForm
+    form_class = forms.PublishingHouseForm
     template_name = 'references/create_house.html'
 
 
 class UpdateHouse(generic.UpdateView):
     model = models.BookPublishingHouse
-    form_class = forms.HouseForm
+    form_class = forms.PublishingHouseForm
     template_name = 'references/update_house.html'
 
 

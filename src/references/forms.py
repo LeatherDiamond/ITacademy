@@ -1,6 +1,7 @@
 from django import forms
 from . import models
 
+#Forms for references
 
 class AuthorForm(forms.ModelForm):
     class Meta:
@@ -17,7 +18,7 @@ class SeriesForm(forms.ModelForm):
 class GenreForm(forms.ModelForm):
     class Meta:
         model = models.BookGenre
-        firlds = ['genre_name', 'description']
+        fields = ['genre_name', 'description']
 
 
 class PublishingHouseForm(forms.ModelForm):

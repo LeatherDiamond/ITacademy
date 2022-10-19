@@ -30,25 +30,25 @@ urlpatterns = [
 
     #Series URLs
 
-    path('series_preview/<int:pk>/', st_views.ShowAuthor.as_view()),
-    path('series_create/', st_views.CreateAuthor.as_view()),
-    path('series_update/<int:pk>/', st_views.UpdateAuthor.as_view()),
-    path('series_delete/<int:pk>/', st_views.DeleteAuthor.as_view()),
-    path('series_list/', st_views.ShowAuthors.as_view()),
+    path('series_preview/<int:pk>/', st_views.ShowSeries.as_view()),
+    path('series_create/', st_views.CreateSeries.as_view()),
+    path('series_update/<int:pk>/', st_views.UpdateSeries.as_view()),
+    path('series_delete/<int:pk>/', st_views.DeleteSeries.as_view()),
+    path('series_list/', st_views.ShowSeries.as_view()),
 
     #Genres URLs
 
-    path('genre_preview/<int:pk>/', st_views.ShowAuthor.as_view()),
-    path('genre_create/', st_views.CreateAuthor.as_view()),
-    path('genre_update/<int:pk>/', st_views.UpdateAuthor.as_view()),
-    path('genre_delete/<int:pk>/', st_views.DeleteAuthor.as_view()),
-    path('genres_list/', st_views.ShowAuthors.as_view()),
+    path('genre_preview/<int:pk>/', st_views.ShowGenre.as_view()),
+    path('genre_create/', st_views.CreateGenre.as_view()),
+    path('genre_update/<int:pk>/', st_views.UpdateGenre.as_view()),
+    path('genre_delete/<int:pk>/', st_views.DeleteGenre.as_view()),
+    path('genres_list/', st_views.ShowGenre.as_view()),
 
     #Publishing houses URLs
-    
-    path('house_preview/<int:pk>/', st_views.ShowAuthor.as_view()),
-    path('house_create/', st_views.CreateAuthor.as_view()),
-    path('house_update/<int:pk>/', st_views.UpdateAuthor.as_view()),
-    path('house_delete/<int:pk>/', st_views.DeleteAuthor.as_view()),
-    path('houses_list/', st_views.ShowAuthors.as_view())
+
+    path('house_preview/<int:pk>/', st_views.ShowHouse.as_view()),
+    path('house_create/', st_views.CreateHouse.as_view()),
+    path('house_update/<int:pk>/', st_views.UpdateHouse.as_view()),
+    path('house_delete/<int:pk>/', st_views.DeleteHouse.as_view()),
+    path('houses_list/', st_views.ShowHouse.as_view())
 ]
