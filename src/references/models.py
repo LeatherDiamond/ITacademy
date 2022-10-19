@@ -36,6 +36,11 @@ class BookSeries(models.Model):
         null = True
     )
 
+
+    def get_absolute_url(self):
+        return f'/series_preview/{self.pk}/'
+
+
     def __str__(self):
         return str(self.book_series)
 
@@ -50,6 +55,11 @@ class BookGenre(models.Model):
         null=True
     )
 
+
+    def get_absolute_url(self):
+        return f'/genre_preview/{self.pk}/'
+
+
     def __str__(self):
         return self.genre_name
 
@@ -63,6 +73,11 @@ class BookPublishingHouse(models.Model):
         blank=True,
         null=True
     )
+
+
+    def get_absolute_url(self):
+        return f'/house_preview/{self.pk}/'
+
 
     def __str__(self):
         return self.house_name

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publishing house preview</title>
+</head>
+<body>
+    <h1>Publishing house:</h1>
+    Publishing house number in the list: {{ object.pk }}<br>
+    Publishing house: {{ object.name }}<br>
+    Description: {{ object.description }}
+    <br>
+    <td><a href="/house_create/">Create a new publishing house</a></td>
+    <br>
+    <td><a href="/house_list/">Show the list of publishing houses</a></td>
+</body>
+</html>

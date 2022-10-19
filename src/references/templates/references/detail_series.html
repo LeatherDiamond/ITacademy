@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series preview</title>
+</head>
+<body>
+    <h1>Series:</h1>
+    Series number in the list: {{ object.pk }}<br>
+    Series name: {{ object.name }}<br>
+    Description: {{ object.description }}
+    <br>
+    <td><a href="/author_create/">Create a new series</a></td>
+    <br>
+    <td><a href="/authors_list/">Show the list of series</a></td>
+</body>
+</html>

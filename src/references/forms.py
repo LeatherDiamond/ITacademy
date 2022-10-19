@@ -8,4 +8,19 @@ class AuthorForm(forms.ModelForm):
         fields = ['name', 'surname', 'description']
 
 
-   
+class SeriesForm(forms.ModelForm):
+    class Meta:
+        model = models.BookSeries
+        fields = ['book_series', 'description']
+
+
+class GenreForm(forms.ModelForm):
+    class Meta:
+        model = models.BookGenre
+        firlds = ['genre_name', 'description']
+
+
+class PublishingHouseForm(forms.ModelForm):
+    class Meta:
+        model = models.BookPublishingHouse
+        fields = ['house_name', 'description']
