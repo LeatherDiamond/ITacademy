@@ -17,6 +17,11 @@ class BookAuthor(models.Model):
         null=True
     )
 
+
+    def get_absolute_url(self):
+        return f'/author_preview/{self.pk}/'
+
+
     def __str__(self):
         return self.name + ' ' + self.surname
 
