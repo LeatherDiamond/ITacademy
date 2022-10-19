@@ -29,4 +29,5 @@ class UpdateAuthor(generic.UpdateView):
 class DeleteAuthor(generic.DeleteView):
     model = models.BookAuthor
     template_name = 'references/delete_author.html'
-
+    def get_success_url(self):
+        return ('/authors_list/')
