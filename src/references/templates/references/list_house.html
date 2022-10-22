@@ -8,13 +8,13 @@
 </head>
 <body>
     <h1>List of publishing houses:</h1>
-        <td><a href="/house_create/">Create a new publishing house</a></td>
+        <td><a href="{% url 'references:house_create' %}">Create a new publishing house</a></td>
     <table border="1">
         {% for obj in object_list %}
         <tr>
-            <td><a href="/house_update/{{obj.pk}}/">{{ obj.pk  }} </a></td>
+            <td><a href="{% url 'references:house_update' pk=obj.pk %}">{{ obj.pk  }} </a></td>
             <td>{{ obj.house_name }}</td>
-            <td><a href="/house_delete/{{obj.pk}}/">DELETE</a></td>
+            <td><a href="{% url 'references:house_delete' pk=obj.pk %}">DELETE</a></td>
         </tr>
         {% endfor %}
 </body>

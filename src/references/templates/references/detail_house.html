@@ -12,8 +12,8 @@
     Publishing house: {{ object.house_name }}<br>
     Description: {{ object.description }}
     <br>
-    <td><a href="/house_create/">Create a new publishing house</a></td>
+    <td><a href="{% url 'references:house_create' %}">Create a new publishing house</a></td>
     <br>
-    <td><a href="/houses_list/">Show the list of publishing houses</a></td>
+    <td><a href="{% url 'references:houses_list' %}">Show the list of publishing houses</a></td>
 </body>
 </html>

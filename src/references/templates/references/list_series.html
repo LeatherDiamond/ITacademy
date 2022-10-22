@@ -8,13 +8,13 @@
 </head>
 <body>
     <h1>List of series:</h1>
-        <td><a href="/series_create/">Create a new series</a></td>
+        <td><a href="{% url 'references:series_create' %}>Create a new series</a></td>
     <table border="1">
         {% for obj in object_list %}
         <tr>
-            <td><a href="/series_update/{{obj.pk}}/">{{ obj.pk  }} </a></td>
+            <td><a href="{% url 'references:series_update' pk=obj.pk %}">{{ obj.pk  }} </a></td>
             <td>{{ obj.book_series }}</td>
-            <td><a href="/series_delete/{{obj.pk}}/">DELETE</a></td>
+            <td><a href="{% url 'references:series_delete' pk=obj.pk %}">DELETE</a></td>
         </tr>
         {% endfor %}
 </body>

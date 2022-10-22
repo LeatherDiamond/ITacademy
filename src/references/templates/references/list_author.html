@@ -8,13 +8,13 @@
 </head>
 <body>
     <h1>List of authors:</h1>
-        <td><a href="/author_create/">Create a new author</a></td>
+        <td><a href="{% url 'references:author_create' %}">Create a new author</a></td>
     <table border="1">
         {% for obj in object_list %}
         <tr>
-            <td><a href="/author_update/{{obj.pk}}/">{{ obj.pk  }} </a></td>
+            <td><a href="{% url 'references:author_update' pk=obj.pk %}">{{ obj.pk  }} </a></td>
             <td>{{ obj.name }} {{ obj.surname }} </td>
-            <td><a href="/author_delete/{{obj.pk}}/">DELETE</a></td>
+            <td><a href="{% url 'references:author_delete' pk=obj.pk %}">DELETE</a></td>
         </tr>
         {% endfor %}
 </body>

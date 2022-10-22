@@ -1,6 +1,7 @@
 from . import models, forms
 from django.shortcuts import render
 from django.views import generic
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -43,7 +44,7 @@ class DeleteAuthor(generic.DeleteView):
     template_name = 'references/delete_author.html'
 
     def get_success_url(self):
-        return ('/authors_list/')
+        return reverse_lazy('authors_list')
 
 #CBV for Series model.
 
@@ -84,7 +85,7 @@ class DeleteSeries(generic.DeleteView):
     template_name = 'references/delete_series.html'
 
     def get_success_url(self):
-        return ('/all_series_list/')
+        return reverse_lazy('series_list')
 
 #CBV for Genre model.
 
@@ -125,7 +126,7 @@ class DeleteGenre(generic.DeleteView):
     template_name = 'references/delete_genre.html'
 
     def get_success_url(self):
-        return ('/genres_list/')
+        return reverse_lazy('genres_list')
 
 #CBV Publishing house form.
 
@@ -166,4 +167,4 @@ class DeleteHouse(generic.DeleteView):
     template_name = 'references/delete_house.html'
 
     def get_success_url(self):
-        return ('/houses_list/')
+        return reverse_lazy('houses_list')

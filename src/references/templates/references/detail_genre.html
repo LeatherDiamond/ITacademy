@@ -12,8 +12,8 @@
     Genre name: {{ object.genre_name }}<br>
     Description: {{ object.description }}
     <br>
-    <td><a href="/genre_create/">Create a new genre</a></td>
+    <td><a href="{% url 'references:genre_create' %}">Create a new genre</a></td>
     <br>
-    <td><a href="/genres_list/">Show the list of genres</a></td>
+    <td><a href="{% url 'references:genres_list' %}">Show the list of genres</a></td>
 </body>
 </html>

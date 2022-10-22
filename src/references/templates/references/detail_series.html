@@ -12,8 +12,8 @@
     Series name: {{ object.book_series }}<br>
     Description: {{ object.description }}
     <br>
-    <td><a href="/series_create/">Create a new series</a></td>
+    <td><a href="{% url 'references:series_create' %}">Create a new series</a></td>
     <br>
-    <td><a href="/all_series_list/">Show the list of series</a></td>
+    <td><a href="{% url 'references:series_list' %}">Show the list of series</a></td>
 </body>
 </html>
