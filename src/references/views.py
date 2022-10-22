@@ -19,13 +19,23 @@ class ShowAuthor(generic.DetailView):
 class CreateAuthor(generic.CreateView):
     model = models.BookAuthor
     form_class = forms.AuthorForm
-    template_name = 'references/create_author.html'
+    template_name = 'references/edit_author.html'
+
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['oepration_name'] = 'Create'
 
 
 class UpdateAuthor(generic.UpdateView):
     model = models.BookAuthor
     form_class = forms.AuthorForm
-    template_name = 'references/update_author.html'
+    template_name = 'references/edit_author.html'
+
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['oepration_name'] = 'Update'
 
 
 class DeleteAuthor(generic.DeleteView):
