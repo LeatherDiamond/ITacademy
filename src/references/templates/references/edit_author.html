@@ -7,7 +7,7 @@
     <title>{{ operation_name }} author</title>
 </head>
 <body>
-    <h1>{{ operation.name }} book's author</h1>
+    <h1>{{ operation_name }} book's author</h1>
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}

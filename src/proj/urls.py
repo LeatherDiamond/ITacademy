@@ -22,33 +22,33 @@ urlpatterns = [
     #Authors URLs
 
     path("admin/", admin.site.urls),
-    path('author_preview/<int:pk>/', st_views.ShowAuthor.as_view()),
-    path('author_create/', st_views.CreateAuthor.as_view()),
-    path('author_update/<int:pk>/', st_views.UpdateAuthor.as_view()),
-    path('author_delete/<int:pk>/', st_views.DeleteAuthor.as_view()),
-    path('authors_list/', st_views.ShowAuthors.as_view()),
+    path('author_preview/<int:pk>/', st_views.ShowAuthor.as_view(), name='author_detail'),
+    path('author_create/', st_views.CreateAuthor.as_view(), name='author_create'),
+    path('author_update/<int:pk>/', st_views.UpdateAuthor.as_view(), name='author_update'),
+    path('author_delete/<int:pk>/', st_views.DeleteAuthor.as_view(), name='author_delete'),
+    path('authors_list/', st_views.ShowAuthors.as_view(), name='authors_list'),
 
     #Series URLs
 
-    path('series_preview/<int:pk>/', st_views.ShowSeries.as_view()),
-    path('series_create/', st_views.CreateSeries.as_view()),
-    path('series_update/<int:pk>/', st_views.UpdateSeries.as_view()),
-    path('series_delete/<int:pk>/', st_views.DeleteSeries.as_view()),
-    path('all_series_list/', st_views.ShowAllSeries.as_view()),
+    path('series_preview/<int:pk>/', st_views.ShowSeries.as_view(), name='series_detail'),
+    path('series_create/', st_views.CreateSeries.as_view(), name='series_create'),
+    path('series_update/<int:pk>/', st_views.UpdateSeries.as_view(), name='series_update'),
+    path('series_delete/<int:pk>/', st_views.DeleteSeries.as_view(), name='series_delete'),
+    path('all_series_list/', st_views.ShowAllSeries.as_view(), name='series_list'),
 
     #Genres URLs
 
-    path('genre_preview/<int:pk>/', st_views.ShowGenre.as_view()),
-    path('genre_create/', st_views.CreateGenre.as_view()),
-    path('genre_update/<int:pk>/', st_views.UpdateGenre.as_view()),
-    path('genre_delete/<int:pk>/', st_views.DeleteGenre.as_view()),
-    path('genres_list/', st_views.ShowGenres.as_view()),
+    path('genre_preview/<int:pk>/', st_views.ShowGenre.as_view(), name='genre_detail'),
+    path('genre_create/', st_views.CreateGenre.as_view(), name='genre_create'),
+    path('genre_update/<int:pk>/', st_views.UpdateGenre.as_view(), name='genre_update'),
+    path('genre_delete/<int:pk>/', st_views.DeleteGenre.as_view(), name='genre_delete'),
+    path('genres_list/', st_views.ShowGenres.as_view(), name='genres_list'),
 
     #Publishing houses URLs
 
-    path('house_preview/<int:pk>/', st_views.ShowHouse.as_view()),
-    path('house_create/', st_views.CreateHouse.as_view()),
-    path('house_update/<int:pk>/', st_views.UpdateHouse.as_view()),
-    path('house_delete/<int:pk>/', st_views.DeleteHouse.as_view()),
-    path('houses_list/', st_views.ShowHouses.as_view())
+    path('house_preview/<int:pk>/', st_views.ShowHouse.as_view(), name='house_detail'),
+    path('house_create/', st_views.CreateHouse.as_view(), name='house_create'),
+    path('house_update/<int:pk>/', st_views.UpdateHouse.as_view(), name='house_update'),
+    path('house_delete/<int:pk>/', st_views.DeleteHouse.as_view(), name='house_delete'),
+    path('houses_list/', st_views.ShowHouses.as_view(), name='houses_list')
 ]

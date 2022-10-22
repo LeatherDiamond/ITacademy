@@ -21,10 +21,10 @@ class CreateAuthor(generic.CreateView):
     form_class = forms.AuthorForm
     template_name = 'references/edit_author.html'
 
-
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['oepration_name'] = 'Create'
+        context['operation_name'] = 'Create'
+        return context
 
 
 class UpdateAuthor(generic.UpdateView):
@@ -32,16 +32,15 @@ class UpdateAuthor(generic.UpdateView):
     form_class = forms.AuthorForm
     template_name = 'references/edit_author.html'
 
-
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['oepration_name'] = 'Update'
+        context['operation_name'] = 'Update'
+        return context
 
 
 class DeleteAuthor(generic.DeleteView):
     model = models.BookAuthor
     template_name = 'references/delete_author.html'
-
 
     def get_success_url(self):
         return ('/authors_list/')
@@ -61,19 +60,28 @@ class ShowSeries(generic.DetailView):
 class CreateSeries(generic.CreateView):
     model = models.BookSeries
     form_class = forms.SeriesForm
-    template_name = 'references/create_series.html'
+    template_name = 'references/edit_series.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['operation_name'] = 'Create'
+        return context
 
 
 class UpdateSeries(generic.UpdateView):
     model = models.BookSeries
     form_class = forms.SeriesForm
-    template_name = 'references/update_series.html'
+    template_name = 'references/edit_series.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['operation_name'] = 'Update'
+        return context
 
 
 class DeleteSeries(generic.DeleteView):
     model = models.BookSeries
     template_name = 'references/delete_series.html'
-
 
     def get_success_url(self):
         return ('/all_series_list/')
@@ -93,19 +101,28 @@ class ShowGenre(generic.DetailView):
 class CreateGenre(generic.CreateView):
     model = models.BookGenre
     form_class = forms.GenreForm
-    template_name = 'references/create_genre.html'
+    template_name = 'references/edit_genre.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['operation_name'] = 'Create'
+        return context
 
 
 class UpdateGenre(generic.UpdateView):
     model = models.BookGenre
     form_class = forms.GenreForm
-    template_name = 'references/update_genre.html'
+    template_name = 'references/edit_genre.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['operation_name'] = 'Update'
+        return context
 
 
 class DeleteGenre(generic.DeleteView):
     model = models.BookGenre
     template_name = 'references/delete_genre.html'
-
 
     def get_success_url(self):
         return ('/genres_list/')
@@ -125,19 +142,28 @@ class ShowHouse(generic.DetailView):
 class CreateHouse(generic.CreateView):
     model = models.BookPublishingHouse
     form_class = forms.PublishingHouseForm
-    template_name = 'references/create_house.html'
+    template_name = 'references/edit_house.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['operation_name'] = 'Create'
+        return context
 
 
 class UpdateHouse(generic.UpdateView):
     model = models.BookPublishingHouse
     form_class = forms.PublishingHouseForm
-    template_name = 'references/update_house.html'
+    template_name = 'references/edit_house.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['operation_name'] = 'Update'
+        return context
 
 
 class DeleteHouse(generic.DeleteView):
     model = models.BookPublishingHouse
     template_name = 'references/delete_house.html'
 
-    
     def get_success_url(self):
         return ('/houses_list/')
