@@ -10,7 +10,7 @@
     <h1>Are you sure that you want to delete the book's series? Push the "submit" button if you are agree.</h1>
     Series in the list: {{ object.pk }}<br>
     Series name: {{ object.book_series }}<br>
-    Description: {{ object.description }}
+    Description: {{ object.description|default:"No description was provided" }}
     <form action="" method="post">
         {% csrf_token %}
         <input type="submit" value="Submit">

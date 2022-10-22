@@ -12,7 +12,7 @@
     <table border="1">
         {% for obj in object_list %}
         <tr>
-            <td><a href="{% url 'references:genre_update' pk=obj.pk %}">{{ obj.pk  }} </a></td>
+            <td><a href="{% url 'references:genre_update' pk=obj.pk %}">{{ obj.pk }} </a></td>
             <td>{{ obj.genre_name }}</td>
             <td><a href="{% url 'references:genre_delete' pk=obj.pk %}">DELETE</a></td>
         </tr>

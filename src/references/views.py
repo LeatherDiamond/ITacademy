@@ -44,7 +44,7 @@ class DeleteAuthor(generic.DeleteView):
     template_name = 'references/delete_author.html'
 
     def get_success_url(self):
-        return reverse_lazy('authors_list')
+        return reverse_lazy('references:authors_list')
 
 #CBV for Series model.
 
@@ -85,7 +85,7 @@ class DeleteSeries(generic.DeleteView):
     template_name = 'references/delete_series.html'
 
     def get_success_url(self):
-        return reverse_lazy('series_list')
+        return reverse_lazy('references:series_list')
 
 #CBV for Genre model.
 
@@ -126,7 +126,7 @@ class DeleteGenre(generic.DeleteView):
     template_name = 'references/delete_genre.html'
 
     def get_success_url(self):
-        return reverse_lazy('genres_list')
+        return reverse_lazy('references:genres_list')
 
 #CBV Publishing house form.
 
@@ -167,4 +167,4 @@ class DeleteHouse(generic.DeleteView):
     template_name = 'references/delete_house.html'
 
     def get_success_url(self):
-        return reverse_lazy('houses_list')
+        return reverse_lazy('references:houses_list')

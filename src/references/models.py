@@ -18,7 +18,7 @@ class BookAuthor(models.Model):
     )
 
     def get_absolute_url(self):
-        return reverse_lazy('author_detail', kwargs={'pk': self.pk})
+        return reverse_lazy('references:author_detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.name + ' ' + self.surname
@@ -35,7 +35,7 @@ class BookSeries(models.Model):
     )
 
     def get_absolute_url(self):
-        return reverse_lazy('series_detail', kwargs={'pk': self.pk})
+        return reverse_lazy('references:series_detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return str(self.book_series)
@@ -52,7 +52,7 @@ class BookGenre(models.Model):
     )
 
     def get_absolute_url(self):
-        return reverse_lazy('genre_detail', kwargs={'pk': self.pk})
+        return reverse_lazy('references:genre_detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.genre_name
@@ -69,7 +69,7 @@ class BookPublishingHouse(models.Model):
     )
 
     def get_absolute_url(self):
-        return reverse_lazy('house_detail', kwargs={'pk': self.pk})
+        return reverse_lazy('references:house_detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.house_name

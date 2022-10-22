@@ -10,7 +10,7 @@
     <h1>Genre:</h1>
     Genre number in the list: {{ object.pk }}<br>
     Genre name: {{ object.genre_name }}<br>
-    Description: {{ object.description }}
+    Description: {{ object.description|default:"No description was provided" }}
     <br>
     <td><a href="{% url 'references:genre_create' %}">Create a new genre</a></td>
     <br>

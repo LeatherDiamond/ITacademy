@@ -10,7 +10,7 @@
     <h1>Publishing house:</h1>
     Publishing house number in the list: {{ object.pk }}<br>
     Publishing house: {{ object.house_name }}<br>
-    Description: {{ object.description }}
+    Description: {{ object.description|default:"No description was provided" }}
     <br>
     <td><a href="{% url 'references:house_create' %}">Create a new publishing house</a></td>
     <br>

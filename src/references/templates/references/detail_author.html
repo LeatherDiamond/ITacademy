@@ -10,7 +10,7 @@
     <h1>Author:</h1>
     Author's number in the list: {{ object.pk }}<br>
     Author's data: {{ object.name }} {{ object.surname }}<br>
-    Description: {{ object.description }}
+    Description: {{ object.description|default:"No description was provided" }}
     <br>
     <td><a href="{% url 'references:author_create' %}">Create a new author</a></td>
     <br>

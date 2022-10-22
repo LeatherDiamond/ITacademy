@@ -10,7 +10,7 @@
     <h1>Series:</h1>
     Series number in the list: {{ object.pk }}<br>
     Series name: {{ object.book_series }}<br>
-    Description: {{ object.description }}
+    Description: {{ object.description|default:"No description was provided" }}
     <br>
     <td><a href="{% url 'references:series_create' %}">Create a new series</a></td>
     <br>
