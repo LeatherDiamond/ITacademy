@@ -1,9 +1,11 @@
 from datetime import timezone
+from tkinter import Widget
 from django.db import models
 from references.models import BookAuthor
 from references.models import BookSeries
 from references.models import BookGenre
 from references.models import BookPublishingHouse
+from django.urls import reverse_lazy
 
 # Create your models here.
 
@@ -13,6 +15,8 @@ class Book(models.Model):
        verbose_name="Book name"
     )
     image = models.ImageField(
+        blank=True,
+        null=True
     )
     author = models.ManyToManyField(
         BookAuthor,
@@ -81,3 +85,6 @@ class Book(models.Model):
         auto_now=True,
         verbose_name="Modification date"
     )
+
+    def get_absolute_url(self):
+        return reverse_lazy('product_card:pc_detail', kwargs={'pk': self.pk})

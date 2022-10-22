@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('references/', include('references.urls', namespace="references"))
+    path('references/', include('references.urls', namespace="references")),
+    path('product_card/', include('product_card.urls', namespace="product_card"))
 ]

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete the product card</title>
+</head>
+<body>
+    <h1>Are you sure that you want to delete the product card? Push the "submit" button if you are agree.</h1>
+    Product card number in the list: {{ object.pk }}<br>
+    Card name: {{ object.name }}<br>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
