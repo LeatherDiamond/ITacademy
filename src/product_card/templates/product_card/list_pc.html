@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List of product cards</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}
+List of product cards
+{% endblock title %}
+
+{% block content %}
     <h1>List of product cards:</h1>
         <td><a href="{% url 'product_card:pc_create' %}">Create a new product card</a></td>
-    <table border="1">
+        <table class="table table-striped">
         {% for obj in object_list %}
         <tr>
             <td><a href="{% url 'product_card:pc_update' pk=obj.pk %}">{{ obj.pk  }} </a></td>
             <td>{{ obj.name }}</td>
-            <td><a href="{% url 'product_card:pc_delete' pk=obj.pk %}">DELETE</a></td>
+            <td><a href="{% url 'product_card:pc_delete' pk=obj.pk %}" class="btn btn-danger"><i class="bi bi-x-lg"></a></td>
         </tr>
+    </table>
         {% endfor %}
-</body>
-</html>
+{% endblock content %}

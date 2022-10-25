@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "crispy_forms",
+    "crispy_bootstrap5",
     "references",
     "product_card"
 ]
@@ -57,7 +59,7 @@ ROOT_URLCONF = "proj.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -111,12 +113,20 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 STATIC_URL = "static/"
-STATIC_ROOT = '/home/AlexanderDovguchits/ITacademy/static'
-STATIC_MEDIA = '/home/AlexanderDovguchits/ITacademy/media'
+STATIC_ROOT = '/home/AlexanderDovguchits/ITacademy/Django project/src/static'
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = '/home/AlexanderDovguchits/ITacademy/Django project/src/media'
+MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"

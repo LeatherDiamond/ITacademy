@@ -2,6 +2,10 @@ from django import forms
 from . import models
 
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+
 class ProductCardForm(forms.ModelForm):
     class Meta:
         model = models.Book
@@ -9,5 +13,5 @@ class ProductCardForm(forms.ModelForm):
          'format', 'isbn', 'weight', 'age_restriction', 'publishing_house', 'available_books', 'activity', \
          'rating', 'date_of_addition'
          ]
-    
+        widgets = {'date_of_addition' : DateInput()}
 

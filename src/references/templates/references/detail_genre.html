@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genre preview</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}
+Genre preview
+{% endblock title %}
+
+{% block content %}
     <h1>Genre:</h1>
     Genre number in the list: {{ object.pk }}<br>
     Genre name: {{ object.genre_name }}<br>
@@ -15,5 +13,4 @@
     <td><a href="{% url 'references:genre_create' %}">Create a new genre</a></td>
     <br>
     <td><a href="{% url 'references:genres_list' %}">Show the list of genres</a></td>
-</body>
-</html>
+{% endblock content %}

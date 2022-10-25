@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List of series</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}List of series{% endblock title %}
+
+
+{% block content %}
     <h1>List of series:</h1>
         <td><a href="{% url 'references:series_create' %}">Create a new series</a></td>
-    <table border="1">
+    <table class="table table-striped">
         {% for obj in object_list %}
         <tr>
             <td><a href="{% url 'references:series_update' pk=obj.pk %}">{{ obj.pk  }} </a></td>
             <td>{{ obj.book_series }}</td>
-            <td><a href="{% url 'references:series_delete' pk=obj.pk %}">DELETE</a></td>
+            <td><a href="{% url 'references:series_delete' pk=obj.pk %}" class="btn btn-danger"><i class="bi bi-x-lg"></a></td>
         </tr>
         {% endfor %}
-</body>
-</html>
+    </table>
+        {% endblock content %}
