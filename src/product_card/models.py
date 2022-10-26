@@ -4,6 +4,8 @@ from references.models import BookSeries
 from references.models import BookGenre
 from references.models import BookPublishingHouse
 from django.urls import reverse_lazy
+from django.utils.datetime_safe import date
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
@@ -89,3 +91,7 @@ class Book(models.Model):
 
     def get_absolute_url(self):
         return reverse_lazy('product_card:pc_detail', kwargs={'pk': self.pk})
+
+    def clean(self):
+        if str(self.date_of_addition) > str(date.today()):
+            raise ValidationError({'date_of_addition': 'Must not be later than today!'})

@@ -12,6 +12,7 @@ List of product cards
         <tr>
             <td><a href="{% url 'product_card:pc_update' pk=obj.pk %}">{{ obj.pk  }} </a></td>
             <td>{{ obj.name }}</td>
+            <td>{{ obj.publishing_year }}</td>
             <td><a href="{% url 'product_card:pc_delete' pk=obj.pk %}" class="btn btn-danger"><i class="bi bi-x-lg"></a></td>
         </tr>
     </table>
