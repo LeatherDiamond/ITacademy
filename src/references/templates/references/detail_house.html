@@ -5,12 +5,15 @@ Publishing house preview
 {% endblock title %}
 
 {% block content %}
-    <h1>Publishing house:</h1>
-    Publishing house number in the list: {{ object.pk }}<br>
-    Publishing house: {{ object.house_name }}<br>
-    Description: {{ object.description|default:"No description was provided" }}
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <div class="text-center">
+        <h1><span style="color: green;">Publishing house successfully created!</span></h1>
+    </div>
+    </div>
+    Publishing house: <b>"{{ object.house_name }}"</b><br>
+    Description: {{ object.description|default:"No description was provided" }}<br>
     <br>
-    <td><a href="{% url 'references:house_create' %}">Create a new publishing house</a></td>
+    <td><a href="{% url 'references:house_create' %}" class="btn btn-outline-success mb-3">Create a new publishing house</a></td>
     <br>
-    <td><a href="{% url 'references:houses_list' %}">Show the list of publishing houses</a></td>
+    <td><a href="{% url 'references:houses_list' %}" class="btn btn-outline-success mb-3">Show the list of publishing houses</a></td>
 {% endblock content %}

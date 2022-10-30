@@ -5,11 +5,16 @@ Delete the product card
 {% endblock title %}
 
 {% block content %}
-    <h1>Are you sure that you want to delete the product card? Push the "submit" button if you are agree.</h1>
-    Product card number in the list: {{ object.pk }}<br>
-    Card name: {{ object.name }}<br>
+<div class="shadow p-3 mb-5 bg-body rounded">
+<div class="text-center">
+    <h1>Are you sure that you want to delete the product card?</h1><br>
+</div>
+</div>
+    <p>Book <b>"{{ object.name }}"</b> will be permanently deleted from the list.<br>
+    If you are agree please click delete button.</p><br>
     <form action="" method="post">
         {% csrf_token %}
-        <input type="submit" value="Submit" class="btn btn-danger">
+        <a href="{% url 'product_card:pc_list' %}" class="btn btn-secondary">Cancel</i></a>
+        <input type="submit" value="Delete" class="btn btn-danger">
     </form>
 {% endblock content %}
