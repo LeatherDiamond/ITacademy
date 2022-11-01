@@ -36,10 +36,10 @@ List of product cards
             <td>{{ obj.publishing_house }}</td>
             <td>{{ obj.modification_date }}</td>
             <td><a href="{% url 'product_card:pc_update' pk=obj.pk %}" class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i></a>
-                <a href="{% url 'product_card:pc_delete' pk=obj.pk %}" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-x-lg"></i></a></td>
+                <a href="{% url 'product_card:pc_delete' pk=obj.pk %}" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#id{{obj.pk}}"><i class="bi bi-x-lg"></i></a></td>
         </tr>
                 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="id{{obj.pk}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -47,7 +47,7 @@ List of product cards
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            Book <b>"{{ obj.name }}"</b> will be permanently deleted from the list.<br>
+            Book <b>"{{ obj.name }}"</b> will be permanently deleted from the list.
             If you are agree please click delete button.<br>
             <br>
             <form action="{% url 'product_card:pc_delete' pk=obj.pk %}" method="post">
