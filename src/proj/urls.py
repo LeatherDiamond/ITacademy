@@ -22,7 +22,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('references/', include('references.urls', namespace="references")),
     path('product_card/', include('product_card.urls', namespace="product_card")),
-    path('', include('home_page.urls', namespace="home_page"))
+    path('', include('home_page.urls', namespace="home_page")),
 ]
 
 if settings.DEBUG:
