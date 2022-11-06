@@ -47,10 +47,10 @@
         
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn btn-outline-success me-4" type="submit">Search</button>
         </form>
 
-        <li>
+        <li style="list-style-type: none">
         {% if user.is_authenticated %}
   <span class="navbar-text mr-2">{{ user }}</span>
   <a href="/logout" class="btn btn-outline-light"><i class="bi bi-door-closed"></i></a>
@@ -197,7 +197,7 @@
         </div>
       </div>
 
-      
+
       <div class="col">
         <div class="card shadow-sm">
           <img src="{{ book7.image.url }}" border="1">
@@ -239,11 +239,9 @@
   <div class="shadow p-3 mb-5 bg-body rounded">
   <div class="container">
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Shipping</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Special offers</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
       </ul>
     <p class="text-center text-muted">&copy; 2022 LeatherDiamond, Inc</p>
   </div>

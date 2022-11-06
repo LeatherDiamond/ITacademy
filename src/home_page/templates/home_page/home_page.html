@@ -43,10 +43,10 @@
             
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <button class="btn btn-outline-success me-4" type="submit">Search</button>
             </form>
     
-            <li>
+            <li style="list-style-type: none">
             {% if user.is_authenticated %}
       <span class="navbar-text mr-2">{{ user }}</span>
       <a href="/logout" class="btn btn-outline-light"><i class="bi bi-door-closed"></i></a>
@@ -73,9 +73,9 @@
   
           <div class="container">
             <div class="carousel-caption text-start">
-              <h1>Example headline.</h1>
-              <p>Some representative placeholder content for the first slide of the carousel.</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+              <h1>Order a book for your soul today.</h1>
+              <p>Sign up in two clicks. </p>
+              <p><a class="btn btn-lg btn-primary" href="register/">Sign up now</a></p>
             </div>
           </div>
         </div>
@@ -83,9 +83,9 @@
             <image src="https://phonoteka.org/uploads/posts/2022-02/thumbs/1645250816_53-phonoteka-org-p-mnogo-knig-fon-57.jpg" alt="books" width="100%" height="100%" border="1">  
           <div class="container">
             <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Some representative placeholder content for the second slide of the carousel.</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+              <h1>A huge number of books to suit all tastes.</h1>
+              <p>Still not shure what to choose? It's not a problem, we have a big choise. </p>
+              <p><a class="btn btn-lg btn-primary" href="catalog/">Learn more</a></p>
             </div>
           </div>
         </div>
@@ -94,9 +94,9 @@
   
           <div class="container">
             <div class="carousel-caption text-end">
-              <h1>One more for good measure.</h1>
-              <p>Some representative placeholder content for the third slide of this carousel.</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+              <h1>Any genre you want.</h1>
+              <p>We are sure to find you a book of any genre.</p>
+              <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
             </div>
           </div>
         </div>
@@ -122,17 +122,17 @@
       <div class="row">
         <div class="col-lg-4">
           <h2 class="fw-normal">Elizabeth Strout</h2>
-          <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+          <p>Elizabeth Strout is widely known for her works in literary fiction and her descriptive characterization.</p>
           <p><a class="btn btn-secondary" href="https://en.wikipedia.org/wiki/Elizabeth_Strout">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <h2 class="fw-normal">Donna Tartt</h2>
-          <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+          <p>Donna Louise Tartt is an American novelist and essayist. Learn more about her works.</p>
           <p><a class="btn btn-secondary" href="https://en.wikipedia.org/wiki/Donna_Tartt">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <h2 class="fw-normal">Colleen Hoover</h2>
-          <p>And lastly this, the third column of representative placeholder content.</p>
+          <p>Colleen Hoover has sold more than 20 million books. Learn more about her books.</p>
           <p><a class="btn btn-secondary" href="https://en.wikipedia.org/wiki/Colleen_Hoover">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
@@ -144,8 +144,8 @@
   
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-          <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+          <h2 class="featurette-heading fw-normal lh-1">Just new fantasy adventure. <span class="text-muted">It’ll blow your mind.</span></h2>
+          <p class="lead">Jinwoo knows it won't be long before his true power fully comes to light and the guilds and Hunter's Association of Korea descend, seeking his allegiance. Since his training has thus far been a solo endeavor, Jinwoo decides he ought to at least see what an A-rank raid is really like. Joining the Hunters' excavation team is the perfect opportunity to assess a high-level guild in action, even if his role is limited to hauling and mining. That is, until a particularly nasty dungeon boss requires the luggage carrier to step up to carry the team as well!</p>
         </div>
         <div class="col-md-5">
             <div class="shadow p-3 mb-5 bg-body rounded">
@@ -158,8 +158,8 @@
   
       <div class="row featurette">
         <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+          <h2 class="featurette-heading fw-normal lh-1">Oh yeah, the most popular book. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead"> It is three in the morning when Bobby Western zips the jacket of his wet suit and plunges from the Coast Guard tender into darkness. His dive light illuminates the sunken jet, nine bodies still buckled in their seats, hair floating, eyes devoid of speculation. Missing from the crash site are the pilot’s flight bag, the plane’s black box, and the tenth passenger. But how? A collateral witness to machinations that can only bring him harm, Western is shadowed in body and spirit—by men with badges; by the ghost of his father, inventor of the bomb that melted glass and flesh in Hiroshima; and by his sister, the love and ruin of his soul.</p>
         </div>
         <div class="col-md-5 order-md-1">
             <div class="shadow p-3 mb-5 bg-body rounded">
@@ -172,8 +172,8 @@
   
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+          <h2 class="featurette-heading fw-normal lh-1">We recommend. <span class="text-muted">Check it out.</span></h2>
+          <p class="lead">Under the influence of their charismatic classics professor, a group of clever, eccentric misfits at an elite New England college discover a way of thinking and living that is a world away from the humdrum existence of their contemporaries. But when they go beyond the boundaries of morality, their lives are changed profoundly and for ever.</p>
         </div>
         <div class="col-md-5">
             <div class="shadow p-3 mb-5 bg-body rounded">
@@ -194,10 +194,8 @@
         <div class="shadow p-3 mb-5 bg-body rounded">
         <div class="container">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Shipping</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Special offers</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
             </ul>
           <p class="text-center text-muted">&copy; 2022 LeatherDiamond, Inc</p>
