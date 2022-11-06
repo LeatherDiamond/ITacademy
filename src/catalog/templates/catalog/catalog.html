@@ -1,0 +1,248 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'bs/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'bs/js/bootstrap.min.js' %}"></script>
+    <link href="{% static 'bs/css/custom_shop_products.css' %}" rel="stylesheet">
+
+
+</head>
+<body>
+  
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">WAWBOOKS</a><br>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/catalog">Catalog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Genres</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Publishing houses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Administrative portal</a>
+          </li>
+        </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link"  href="https://select.by/kursy-valyut/natsbank-rb">2.4980 USD/BYN</a>
+            </li>
+          </ul>
+        
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <li>
+        {% if user.is_authenticated %}
+  <span class="navbar-text mr-2">{{ user }}</span>
+  <a href="/logout" class="btn btn-outline-light"><i class="bi bi-door-closed"></i></a>
+{% else %}
+  <a href="{% url 'home_page:login' %}" class="btn btn-outline-light"><i class="bi bi-door-open"></i></a>
+  <a href="{% url 'home_page:register' %}" class="btn btn-outline-light">Sign up</a>
+{% endif %}
+        </li>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">A room without books is like a body without a soul.</h1>
+      <p class="lead text-muted"> © Cicéron</p>
+    </div>
+  </div>
+</section>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div class="col">
+        <div class="card shadow-sm">
+           <img src="{{ book1.image.url }}" border="1">
+          <div class="card-body">
+            <p class="card-text">No novelist working today has Strout’s extraordinary capacity for radical empathy. May droves of readers come to feel enlarged and comforted.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{ book2.image.url }}" border="1">
+          <div class="card-body">
+            <p class="card-text">A contemporary literary classic and "an accomplished psychological thriller. Absolutely chilling", from the Pulitzer Prize-winning author of The Goldfinch.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{ book3.image.url }}" border="1">
+          <div class="card-body">
+            <p class="card-text">Jinwoo knows it won’t be long before his true power fully comes to light and the guilds and Hunter’s Association of Korea descend, seeking his allegiance. </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{ book4.image.url }}" border="1">
+          <div class="card-body">
+            <p class="card-text">#1 New York Times bestselling author and creator Catana Chetwynd’s latest collection of comics illustrates the moments a relationship “levels up” and all the intimate, special, and amusing adventures.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{ book5.image.url }}" border="1">
+          <div class="card-body">
+            <p class="card-text">#1 New York Times bestselling author Rupi Kaur presents guided poetry writing exercises of her own design to help you explore themes of trauma, loss, heartache, love, family, healing.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{ book6.image.url }}" border="1">
+          <div class="card-body">
+            <p class="card-text">"It Ends with Us isn't an ordinary love story. It will break your heart while filling you with hope, and by the end of this gripping, pulse-pounding novel, you'll be smiling through your tears."</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{ book7.image.url }}" border="1">
+          <div class="card-body">
+            <p class="card-text">The blockbuster danmei/Boys’ Love novels from China that inspired the animated series! This epic historical fantasy about a prince and the mysterious man by his side is now officially in English.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{ book8.image.url }}" border="1">
+          <div class="card-body">
+            <p class="card-text">No single historical or fictional work has more tellingly or insightfully depicted... the insidious manner in which Nazism began to permeate the fabric of German society than Lion Feuchtwanger's great novel.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{ book9.image.url }}" border="1">
+          <div class="card-body">
+            <p class="card-text">“A masterful, unsettling novel from one of Latin America’s most exciting authors.”—Silvia Moreno-Garcia, author of Mexican Gothic and The Daughter of Doctor Moreau</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{ book10.image.url }}" border="1">
+          <div class="card-body">
+            <p class="card-text">The Passenger is the story of a salvage diver, haunted by loss, afraid of the watery deep, pursued for a conspiracy beyond his understanding, and longing for a death he cannot reconcile with God.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer class="py-3 my-4">
+  <div class="shadow p-3 mb-5 bg-body rounded">
+  <div class="container">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+      </ul>
+    <p class="text-center text-muted">&copy; 2022 LeatherDiamond, Inc</p>
+  </div>
+  </div>
+</footer>
+</main>
+    
+</body>
+</html>
