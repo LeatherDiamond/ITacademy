@@ -63,7 +63,7 @@ class HomePage(generic.TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['new_book'] = Book.objects.get(pk=12) #3
-        # context['awesome_book'] = Book.objects.get(pk=10)
-        # context['history_book'] = Book.objects.get(pk=2)
+        context['new_book'] = Book.objects.get(pk=3) 
+        context['awesome_book'] = Book.objects.get(pk=10)
+        context['history_book'] = Book.objects.get(pk=2)
         return context
