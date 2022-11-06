@@ -11,8 +11,8 @@ class NewUserForm(UserCreationForm):
     country = forms.CharField(required=True)
     city = forms.CharField(required=True, max_length=30)
     address = forms.CharField(required=True, max_length=60)
-    reserve_address = forms.CharField(max_length=60)
-    additional_info = forms.CharField(max_length=150)
+    reserve_address = forms.CharField(required=False, max_length=60)
+    additional_info = forms.CharField(required=False, max_length=150)
 
     class Meta:
         model = User
