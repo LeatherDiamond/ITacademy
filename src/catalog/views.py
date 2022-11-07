@@ -10,7 +10,7 @@ class CatalogView(View):
 
     def get(self, request, *args, **kwargs):
         book = Book.objects.all()
-        paginator = Paginator(book, 12)
+        paginator = Paginator(book, 6)
 
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
