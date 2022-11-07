@@ -77,162 +77,23 @@
 
 <div class="album py-5 bg-light">
   <div class="container">
-
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <div class="col">
+        {% for obj in page_obj %}
         <div class="card shadow-sm">
-           <img src="{{ book1.image.url }}" border="1">
+           <img src="{{ obj.image.url }}" border="1">
           <div class="card-body">
-            <p class="card-text">No novelist working today has Strout’s extraordinary capacity for radical empathy. May droves of readers come to feel enlarged and comforted.</p>
+            <p class="card-text">{{ obj.description }}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
                 <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card shadow-sm">
-          <img src="{{ book2.image.url }}" border="1">
-          <div class="card-body">
-            <p class="card-text">A contemporary literary classic and "an accomplished psychological thriller. Absolutely chilling", from the Pulitzer Prize-winning author of The Goldfinch.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card shadow-sm">
-          <img src="{{ book3.image.url }}" border="1">
-          <div class="card-body">
-            <p class="card-text">Jinwoo knows it won’t be long before his true power fully comes to light and the guilds and Hunter’s Association of Korea descend, seeking his allegiance. </p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card shadow-sm">
-          <img src="{{ book6.image.url }}" border="1">
-          <div class="card-body">
-            <p class="card-text">"It Ends with Us isn't an ordinary love story. It will break your heart while filling you with hope, and by the end of this gripping, pulse-pounding novel, you'll be smiling through your tears."</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card shadow-sm">
-          <img src="{{ book4.image.url }}" border="1">
-          <div class="card-body">
-            <p class="card-text">#1 New York Times bestselling author and creator Catana Chetwynd’s latest collection of comics illustrates the moments a relationship “levels up” and all the intimate, special, and amusing adventures.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card shadow-sm">
-          <img src="{{ book5.image.url }}" border="1">
-          <div class="card-body">
-            <p class="card-text">#1 New York Times bestselling author Rupi Kaur presents guided poetry writing exercises of her own design to help you explore themes of trauma, loss, heartache, love, family, healing.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col">
-        <div class="card shadow-sm">
-          <img src="{{ book8.image.url }}" border="1">
-          <div class="card-body">
-            <p class="card-text">No single historical or fictional work has more tellingly or insightfully depicted... the insidious manner in which Nazism began to permeate the fabric of German society than Lion Feuchtwanger's great novel.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card shadow-sm">
-          <img src="{{ book9.image.url }}" border="1">
-          <div class="card-body">
-            <p class="card-text">“A masterful, unsettling novel from one of Latin America’s most exciting authors.”—Silvia Moreno-Garcia, author of Mexican Gothic and The Daughter of Doctor Moreau</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col">
-        <div class="card shadow-sm">
-          <img src="{{ book7.image.url }}" border="1">
-          <div class="card-body">
-            <p class="card-text">The blockbuster danmei/Boys’ Love novels from China that inspired the animated series! This epic historical fantasy about a prince and the mysterious man by his side is now officially in English.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="col">
-        <div class="card shadow-sm">
-          <img src="{{ book10.image.url }}" border="1">
-          <div class="card-body">
-            <p class="card-text">The Passenger is the story of a salvage diver, haunted by loss, afraid of the watery deep, pursued for a conspiracy beyond his understanding, and longing for a death he cannot reconcile with God.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+{% endfor %}
 </main>
 
 <footer class="py-3 my-4">
@@ -248,6 +109,5 @@
   </div>
 </footer>
 </main>
-    
 </body>
 </html>

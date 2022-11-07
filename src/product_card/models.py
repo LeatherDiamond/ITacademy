@@ -87,6 +87,11 @@ class Book(models.Model):
         auto_now=True,
         verbose_name="Modification date"
     )
+
+    description = models.TextField(
+        blank = True,
+        null = True
+    )
     
 
     def get_absolute_url(self):
