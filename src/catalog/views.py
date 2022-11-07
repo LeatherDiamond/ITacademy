@@ -24,11 +24,6 @@ class CatalogView(View):
         )
 
 
-class BookDetail(generic.TemplateView):
+class BookDetail(generic.DetailView):
     template_name = 'catalog/book_detail.html'
-
-    def get_context_data(self, *args, **kwargs):
-        pk = kwargs['pk']    
-        context = super().get_context_data(*args, **kwargs)
-        context['pk'] = Book.objects.get(pk=pk)
-        return context
+    model = Book

@@ -7,13 +7,38 @@
 {% block content %}
 <div class="shadow p-3 mb-5 bg-body rounded">
     <div class="text-center">
-        <h1><span style="color: green;">Publishing house successfully created!</span></h1>
+        <h2>{{ object.name }}</h2>
     </div>
+</div>
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <hr class="featurette-divider">
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">{{ object.name }}</h2><br>
+        <h4 class="featurette-heading fw-normal lh-1" >Price:<span class="text-muted"><em> {{ object.price }} BYN</h4></em>
+        <h4 class="featurette-heading fw-normal lh-1" >Author:<span class="text-muted"><em> {{ object.author }}</h4></em>
+        <h4 class="featurette-heading fw-normal lh-1" >Series:<span class="text-muted"><em> {{ object.series }}</h4></em>
+        <h4 class="featurette-heading fw-normal lh-1" >Genre:<span class="text-muted"><em> {{ object.genre }}</h4></em>
+        <h4 class="featurette-heading fw-normal lh-1" >Year:<span class="text-muted"><em> {{ object.publishing_year }}</h4></em>
+        <h4 class="featurette-heading fw-normal lh-1" >Pages:<span class="text-muted"><em> {{ object.pages }}</h4></em>
+        <h4 class="featurette-heading fw-normal lh-1" >Binding:<span class="text-muted"><em> {{ object.binding }}</h4></em>
+        <h4 class="featurette-heading fw-normal lh-1" >Format:<span class="text-muted"><em> {{ object.format }}</h4></em>
+        <h4 class="featurette-heading fw-normal lh-1" >ISBN:<span class="text-muted"><em> {{ object.isbn }}</h4></em>
+        <h4 class="featurette-heading fw-normal lh-1" >Weight:<span class="text-muted"><em> {{ object.weight }} gr</h4></em>
+        <h4 class="featurette-heading fw-normal lh-1" >Age restriction:<span class="text-muted"><em> {{ object.age_restriction }}</h4></em>
+        <h4 class="featurette-heading fw-normal lh-1" >Publisher:<span class="text-muted"><em> {{ object.publishing_house }}</h4></em>
+        <h4 class="featurette-heading fw-normal lh-1" >Books available:<span class="text-muted"><em> {{ object.available_books }} pcs</h4></em>
+        <h4 class="featurette-heading fw-normal lh-1" >Available for purchase:<span class="text-muted"><em> {{ object.activity }}</h4></em>
+        <h4 class="featurette-heading fw-normal lh-1" >Rating:<span class="text-muted"><em> {{ object.rating }}</h4></em>
+        
+        <br>
+        <h5 class="featurette-heading fw-normal lh-1" ><span class="text-muted"> {{ object.description }}</h5>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img src="{{ object.image.url }}" width="500" height="500" border="1">
+      </div>
     </div>
-    Publishing house: <b>"{{ object.house_name }}"</b><br>
-    Description: {{ object.description|default:"No description was provided" }}<br>
-    <br>
-    <td><a href="{% url 'references:house_create' %}" class="btn btn-outline-success mb-3">Create a new publishing house</a></td>
-    <br>
-    <td><a href="{% url 'references:houses_list' %}" class="btn btn-outline-success mb-3">Show the list of publishing houses</a></td>
+    <h6 class="featurette-heading fw-normal lh-1" >Changed:<span class="text-muted"><em> {{ object.modification_date }}</h6></em><br>
+
+    <td><a href="{% url 'catalog:catalog' %}" class="btn btn-outline-secondary mb-3">Cancel</a></td>     <td><a href="#" class="btn btn-outline-success mb-3">Add to cart</a></td>
 {% endblock content %}
