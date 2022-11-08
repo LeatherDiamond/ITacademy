@@ -34,7 +34,7 @@ class BookDetail(generic.DetailView):
     # comment_form = CommentForm(request.POST)
 
     def get(self, request, *args, **kwargs):
-        book = get_object_or_404(Book)
+        book = get_object_or_404(Book, pk=kwargs['pk'])
         last_posts = Book.objects.all().order_by('-id')[:3]
         comment_form = CommentForm()
         return render(request, 'catalog/book_detail.html', context={
@@ -49,7 +49,7 @@ class BookDetail(generic.DetailView):
         if comment_form.is_valid():
             text = request.POST['text']
             username = self.request.user
-            book = get_object_or_404(Book)
+            book = get_object_or_404(Book, pk=kwargs['pk'])
             comment = Comment.objects.create(book=book, username=username,
                                              text=text)
             return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
