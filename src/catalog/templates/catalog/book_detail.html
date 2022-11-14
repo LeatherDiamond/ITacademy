@@ -40,7 +40,7 @@
     </div>
     <h6 class="featurette-heading fw-normal lh-1" >Changed:<span class="text-muted"><em> {{ book.modification_date }}</h6></em><br>
 
-    <td><a href="{% url 'catalog:catalog' %}" class="btn btn-outline-secondary mb-3">Cancel</a></td>     <td><a href="#" class="btn btn-outline-success mb-3">Add to cart</a></td>
+    <td><a href="{% url 'catalog:catalog' %}" class="btn btn-outline-secondary mb-3" onclick="history.go(-1); return false;">Cancel</a></td>     <td><a href="#" class="btn btn-outline-success mb-3">Add to cart</a></td>
     <hr>
     </div>
     <div class="card my-4">

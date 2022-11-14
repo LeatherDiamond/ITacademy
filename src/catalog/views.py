@@ -6,8 +6,27 @@ from .forms import CommentForm
 from django.shortcuts import get_object_or_404, render
 from .models import Comment
 from django.http import HttpResponse, HttpResponseRedirect
+from django.db.models import Q
 
 # Create your views here.
+
+
+class SearchResultView(View):
+    def get(self, request, *args, **kwargs):
+        query = self.request.GET.get('q')
+        results = ''
+        if query:
+            results = Book.objects.filter(
+                Q(author__name__icontains=query) | Q(name__icontains=query) | Q(author__surname__icontains=query) | Q(genre__genre_name__icontains=query) | Q(series__book_series__icontains=query)
+            )
+        paginator = Paginator(results, 12)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        return render(request, 'catalog/search.html', context={
+            'title': 'Search',
+            'results': page_obj,
+            'count': paginator.count,
+        })
 
 
 class CatalogView(View):
@@ -56,5 +75,3 @@ class BookDetail(generic.DetailView):
         return render(request, 'catalog/book_detail.html', context={
             'comment_form': comment_form
         })
-
-    
