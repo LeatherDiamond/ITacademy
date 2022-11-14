@@ -18,7 +18,7 @@ class SearchResultView(View):
         if query:
             results = Book.objects.filter(
                 Q(author__name__icontains=query) | Q(name__icontains=query) | Q(author__surname__icontains=query) | Q(genre__genre_name__icontains=query) | Q(series__book_series__icontains=query)
-            )
+            ).distinct()
         paginator = Paginator(results, 12)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
