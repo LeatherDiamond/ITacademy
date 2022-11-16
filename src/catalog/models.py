@@ -26,7 +26,17 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
         unique=True,
         max_length=30,
     )
-    email = models.EmailField(blank=True, null=True)
+
+    email = models.EmailField()
+    index = models.IntegerField()
+    name = models.CharField(max_length=30)
+    surname = models.CharField(max_length=30)
+    phone = models.IntegerField(help_text="Enter the number in international format.")
+    country = models.CharField(max_length=30)
+    city = models.CharField(max_length=30)
+    address = models.CharField(max_length=60)
+    reserve_address = models.CharField(blank=True, null=True, max_length=60)
+    additional_info = models.CharField(blank=True, null=True, max_length=150)
 
     is_staff = models.BooleanField(
         default=False,
@@ -35,7 +45,7 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
         default=True,
     )
     is_superuser = models.BooleanField(
-        default=True
+        default=False
     )
 
     objects = UserManager()

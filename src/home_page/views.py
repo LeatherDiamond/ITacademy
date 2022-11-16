@@ -15,7 +15,7 @@ from django.contrib.auth.forms import AuthenticationForm
 def logout_request(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.") 
-	return HttpResponseRedirect('/')
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 #User authentication
 
