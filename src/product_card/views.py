@@ -2,20 +2,27 @@ from django.shortcuts import render
 from django.views import generic
 from django.urls import reverse_lazy
 from . import models, forms
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 # Create your views here.
 
-class ShowProductCardList(generic.ListView):
+class ShowProductCardList(LoginRequiredMixin, PermissionRequiredMixin, generic.ListView):
+    login_url = 'home_page:login'
+    permission_required = 'product_card.view_book'
     model = models.Book
     template_name = 'product_card/list_pc.html'
 
 
-class ShowProductCard(generic.DetailView):
+class ShowProductCard(LoginRequiredMixin, PermissionRequiredMixin, generic.DetailView):
+    login_url = 'home_page:login'
+    permission_required = 'product_card.view_book'
     model = models.Book
     template_name = 'product_card/detail_pc.html'
 
 
-class CreateProductCard(generic.CreateView):
+class CreateProductCard(LoginRequiredMixin, PermissionRequiredMixin, generic.CreateView):
+    login_url = 'home_page:login'
+    permission_required = 'product_card.add_book'
     model = models.Book
     form_class = forms.ProductCardForm
     template_name = 'product_card/edit_pc.html'
@@ -26,7 +33,9 @@ class CreateProductCard(generic.CreateView):
         return context
 
 
-class UpdateProductCard(generic.UpdateView):
+class UpdateProductCard(LoginRequiredMixin, PermissionRequiredMixin, generic.UpdateView):
+    login_url = 'home_page:login'
+    permission_required = 'product_card.change_book'
     model = models.Book
     form_class = forms.ProductCardForm
     template_name = 'product_card/edit_pc.html'
@@ -37,7 +46,9 @@ class UpdateProductCard(generic.UpdateView):
         return context
 
 
-class DeleteProductCard(generic.DeleteView):
+class DeleteProductCard(LoginRequiredMixin, PermissionRequiredMixin, generic.DeleteView):
+    login_url = 'home_page:login'
+    permission_required = 'product_card.delete_book'
     model = models.Book
     template_name = 'product_card/delete_pc.html'
 

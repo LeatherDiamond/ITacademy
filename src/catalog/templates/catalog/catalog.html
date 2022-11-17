@@ -35,9 +35,11 @@
           <li class="nav-item">
             <a class="nav-link active" href="#">Profile</a>
           </li>
+          {% if perms.product_card.view_book%}
           <li class="nav-item">
             <a class="nav-link active" href="#">Administrative portal</a>
           </li>
+          {% endif %}
         </ul>
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -87,7 +89,9 @@
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <a href="{% url 'catalog:book_detail' pk=obj.pk %}"  type="submit" class="btn btn-sm btn-outline-secondary">View</a>
+                {% if perms.product_card.view_book%}
                 <a href="{% url 'product_card:pc_update' pk=obj.pk %}" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+                {% endif %}
               </div>
             </div>
           </div>

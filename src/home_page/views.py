@@ -31,7 +31,12 @@ def login_request(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}.")
-                return HttpResponseRedirect('/')
+                next_param = request.POST.get('next')
+                if next_param:
+                    url = next_param
+                else:
+                    url = '/'
+                return HttpResponseRedirect(url)
             else:
                 messages.error(request,"Invalid username or password.")
         else:

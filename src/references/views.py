@@ -2,22 +2,29 @@ from . import models, forms
 from django.shortcuts import render
 from django.views import generic
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 # Create your views here.
 
 #CBV for Author model.
 
-class ShowAuthors(generic.ListView):
+class ShowAuthors(LoginRequiredMixin, PermissionRequiredMixin, generic.ListView):
+    login_url = 'home_page:login'
+    permission_required = 'references.view_bookauthor'
     model = models.BookAuthor
     template_name = 'references/list_author.html'
 
 
-class ShowAuthor(generic.DetailView):
+class ShowAuthor(LoginRequiredMixin, PermissionRequiredMixin, generic.DetailView):
     model = models.BookAuthor
+    login_url = 'home_page:login'
+    permission_required = 'references.view_bookauthor'
     template_name = 'references/detail_author.html'
 
 
-class CreateAuthor(generic.CreateView):
+class CreateAuthor(LoginRequiredMixin, PermissionRequiredMixin, generic.CreateView):
+    login_url = 'home_page:login'
+    permission_required = 'references.add_bookauthor'
     model = models.BookAuthor
     form_class = forms.AuthorForm
     template_name = 'references/edit_author.html'
@@ -28,7 +35,9 @@ class CreateAuthor(generic.CreateView):
         return context
 
 
-class UpdateAuthor(generic.UpdateView):
+class UpdateAuthor(LoginRequiredMixin, PermissionRequiredMixin, generic.UpdateView):
+    login_url = 'home_page:login'
+    permission_required = 'references.change_bookauthor'
     model = models.BookAuthor
     form_class = forms.AuthorForm
     template_name = 'references/edit_author.html'
@@ -39,7 +48,9 @@ class UpdateAuthor(generic.UpdateView):
         return context
 
 
-class DeleteAuthor(generic.DeleteView):
+class DeleteAuthor(LoginRequiredMixin, PermissionRequiredMixin, generic.DeleteView):
+    login_url = 'home_page:login'
+    permission_required = 'references.delete_bookauthor'
     model = models.BookAuthor
     template_name = 'references/delete_author.html'
 
@@ -48,17 +59,23 @@ class DeleteAuthor(generic.DeleteView):
 
 #CBV for Series model.
 
-class ShowAllSeries(generic.ListView):
+class ShowAllSeries(LoginRequiredMixin, PermissionRequiredMixin, generic.ListView):
+    login_url = 'home_page:login'
+    permission_required = 'references.view_bookseries'
     model = models.BookSeries
     template_name = 'references/list_series.html'
 
 
-class ShowSeries(generic.DetailView):
+class ShowSeries(LoginRequiredMixin, PermissionRequiredMixin, generic.DetailView):
+    login_url = 'home_page:login'
+    permission_required = 'references.view_bookseries'
     model = models.BookSeries
     template_name = 'references/detail_series.html'
 
 
-class CreateSeries(generic.CreateView):
+class CreateSeries(LoginRequiredMixin, PermissionRequiredMixin, generic.CreateView):
+    login_url = 'home_page:login'
+    permission_required = 'references.add_bookseries'
     model = models.BookSeries
     form_class = forms.SeriesForm
     template_name = 'references/edit_series.html'
@@ -69,7 +86,9 @@ class CreateSeries(generic.CreateView):
         return context
 
 
-class UpdateSeries(generic.UpdateView):
+class UpdateSeries(LoginRequiredMixin, PermissionRequiredMixin, generic.UpdateView):
+    login_url = 'home_page:login'
+    permission_required = 'references.change_bookseries'
     model = models.BookSeries
     form_class = forms.SeriesForm
     template_name = 'references/edit_series.html'
@@ -80,7 +99,9 @@ class UpdateSeries(generic.UpdateView):
         return context
 
 
-class DeleteSeries(generic.DeleteView):
+class DeleteSeries(LoginRequiredMixin, PermissionRequiredMixin, generic.DeleteView):
+    login_url = 'home_page:login'
+    permission_required = 'references.delete_bookseries'
     model = models.BookSeries
     template_name = 'references/delete_series.html'
 
@@ -89,17 +110,23 @@ class DeleteSeries(generic.DeleteView):
 
 #CBV for Genre model.
 
-class ShowGenres(generic.ListView):
+class ShowGenres(LoginRequiredMixin, PermissionRequiredMixin, generic.ListView):
+    login_url = 'home_page:login'
+    permission_required = 'references.view_bookgenre'
     model = models.BookGenre
     template_name = 'references/list_genre.html'
 
 
-class ShowGenre(generic.DetailView):
+class ShowGenre(LoginRequiredMixin, PermissionRequiredMixin, generic.DetailView):
+    login_url = 'home_page:login'
+    permission_required = 'references.view_bookgenre'
     model = models.BookGenre
     template_name = 'references/detail_genre.html'
 
 
-class CreateGenre(generic.CreateView):
+class CreateGenre(LoginRequiredMixin, PermissionRequiredMixin, generic.CreateView):
+    login_url = 'home_page:login'
+    permission_required = 'references.add_bookgenre'
     model = models.BookGenre
     form_class = forms.GenreForm
     template_name = 'references/edit_genre.html'
@@ -110,7 +137,9 @@ class CreateGenre(generic.CreateView):
         return context
 
 
-class UpdateGenre(generic.UpdateView):
+class UpdateGenre(LoginRequiredMixin, PermissionRequiredMixin, generic.UpdateView):
+    login_url = 'home_page:login'
+    permission_required = 'references.change_bookgenre'
     model = models.BookGenre
     form_class = forms.GenreForm
     template_name = 'references/edit_genre.html'
@@ -121,7 +150,9 @@ class UpdateGenre(generic.UpdateView):
         return context
 
 
-class DeleteGenre(generic.DeleteView):
+class DeleteGenre(LoginRequiredMixin, PermissionRequiredMixin, generic.DeleteView):
+    login_url = 'home_page:login'
+    permission_required = 'references.delete_bookgenre'
     model = models.BookGenre
     template_name = 'references/delete_genre.html'
 
@@ -130,17 +161,23 @@ class DeleteGenre(generic.DeleteView):
 
 #CBV Publishing house form.
 
-class ShowHouses(generic.ListView):
+class ShowHouses(LoginRequiredMixin, PermissionRequiredMixin, generic.ListView):
+    login_url = 'home_page:login'
+    permission_required = 'references.view_bookpublishinghouse'
     model = models.BookPublishingHouse
     template_name = 'references/list_house.html'
 
 
-class ShowHouse(generic.DetailView):
+class ShowHouse(LoginRequiredMixin, PermissionRequiredMixin, generic.DetailView):
+    login_url = 'home_page:login'
+    permission_required = 'references.view_bookpublishinghouse'
     model = models.BookPublishingHouse
     template_name = 'references/detail_house.html'
 
 
-class CreateHouse(generic.CreateView):
+class CreateHouse(LoginRequiredMixin, PermissionRequiredMixin, generic.CreateView):
+    login_url = 'home_page:login'
+    permission_required = 'references.add_bookpublishinghouse'
     model = models.BookPublishingHouse
     form_class = forms.PublishingHouseForm
     template_name = 'references/edit_house.html'
@@ -151,7 +188,9 @@ class CreateHouse(generic.CreateView):
         return context
 
 
-class UpdateHouse(generic.UpdateView):
+class UpdateHouse(LoginRequiredMixin, PermissionRequiredMixin, generic.UpdateView):
+    login_url = 'home_page:login'
+    permission_required = 'references.change_bookpublishinghouse'
     model = models.BookPublishingHouse
     form_class = forms.PublishingHouseForm
     template_name = 'references/edit_house.html'
@@ -162,7 +201,9 @@ class UpdateHouse(generic.UpdateView):
         return context
 
 
-class DeleteHouse(generic.DeleteView):
+class DeleteHouse(LoginRequiredMixin, PermissionRequiredMixin, generic.DeleteView):
+    login_url = 'home_page:login'
+    permission_required = 'references.delete_bookpublishinghouse'
     model = models.BookPublishingHouse
     template_name = 'references/delete_house.html'
 

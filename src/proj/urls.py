@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from catalog.views import SearchResultView
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("s-admin/", admin.site.urls),
     path('references/', include('references.urls', namespace="references")),
     path('product_card/', include('product_card.urls', namespace="product_card")),
     path('', include('home_page.urls', namespace="home_page")),
