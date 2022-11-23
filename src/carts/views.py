@@ -24,7 +24,6 @@ class CartUpdate(View):
             if goods:
                 for key, value in request.POST.items():
                     if "quantityforgood_" in key:
-                        print(key, value)
                         pk = int(key.split('_')[1])
                         good = goods.get(pk=pk)
                         good.quantity = int(value)
@@ -71,4 +70,5 @@ class CartView(generic.DetailView):
 
 class DeleteGoodInCartView(generic.DeleteView):
     model = models.BooksInCart
+    template_name = 'carts/delete_book_in_cart.html'
     success_url = reverse_lazy("carts:cart_edit")
