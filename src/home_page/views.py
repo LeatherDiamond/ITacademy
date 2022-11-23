@@ -49,13 +49,18 @@ def login_request(request):
 def register_request(request):
     if request.method == "POST":
         form = NewUserForm(request.POST)
-        print(form.errors)
         if form.is_valid():
             user = form.save()
             login(request, user)
-            messages.success(request, "Registration successful.")
-            return HttpResponseRedirect('/')
+            next_param = request.POST.get('next')
+            if next_param:
+                url = next_param
+            else:
+                url = '/'
+            return HttpResponseRedirect(url)
         else:
+            messages.error(request, "Unsuccessful registration. Invalid information.")
+    else:
             messages.error(request, "Unsuccessful registration. Invalid information.")
     form = NewUserForm()
     return render (request=request, template_name="home_page/register.html", context={"register_form":form})
