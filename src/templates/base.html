@@ -56,9 +56,10 @@
   <span class="navbar-text mr-2">{{ user }}</span>
   <a href="/logout" class="btn btn-outline-light"><i class="bi bi-door-closed"></i></a>
 {% else %}
-  <a href="{% url 'home_page:login' %}" class="btn btn-outline-light"><i class="bi bi-door-open"></i></a>
+  <a href="{% url 'home_page:login' %}" class="btn btn-outline-light">Login</a>
   <a href="{% url 'home_page:register' %}" class="btn btn-outline-light">Sign up</a>
 {% endif %}
+<a href="{% url 'carts:cart_edit' %}" class="btn btn-outline-light"><i class="bi bi-cart"></i></a>
         </li>
       </div>
     </div>
