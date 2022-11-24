@@ -149,14 +149,14 @@
         <div class="col-md-7">
           <h2 class="featurette-heading fw-normal lh-1">Just new fantasy adventure. <span class="text-muted">It’ll blow your mind.</span></h2>
           <p class="lead">Jinwoo knows it won't be long before his true power fully comes to light and the guilds and Hunter's Association of Korea descend, seeking his allegiance. Since his training has thus far been a solo endeavor, Jinwoo decides he ought to at least see what an A-rank raid is really like. Joining the Hunters' excavation team is the perfect opportunity to assess a high-level guild in action, even if his role is limited to hauling and mining. That is, until a particularly nasty dungeon boss requires the luggage carrier to step up to carry the team as well!</p>
+          <div>
+            <a href={% url "catalog:book_detail" pk=3 %} class="btn btn-outline-success me4">Get it now!</a>
+          </div>
         </div>
         <div class="col-md-5">
             <div class="shadow p-3 mb-5 bg-body rounded">
             <img src="{{ new_book.image.url }}" alt="Solo leveling" width="500" height="500" border="1">
             </div>
-        </div>
-        <div>
-          <a href={% url "catalog:book_detail" pk=3 %} class="btn btn-outline-success me4">Get it now!</a>
         </div>
       </div>
   
@@ -183,14 +183,14 @@
         <div class="col-md-7">
           <h2 class="featurette-heading fw-normal lh-1">We recommend. <span class="text-muted">Check it out.</span></h2>
           <p class="lead">Under the influence of their charismatic classics professor, a group of clever, eccentric misfits at an elite New England college discover a way of thinking and living that is a world away from the humdrum existence of their contemporaries. But when they go beyond the boundaries of morality, their lives are changed profoundly and for ever.</p>
+          <div>
+            <a href={% url "catalog:book_detail" pk=2 %} class="btn btn-outline-success me4">Get it now!</a>
+          </div>
         </div>
         <div class="col-md-5">
             <div class="shadow p-3 mb-5 bg-body rounded">
                 <img src="{{ history_book.image.url }}" alt="The secret History" width="500" height="500" border="1">
                 </div>
-            </div>
-            <div>
-              <a href={% url "catalog:book_detail" pk=2 %} class="btn btn-outline-success me4">Get it now!</a>
             </div>
           </div>
   
