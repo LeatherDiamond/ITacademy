@@ -14,7 +14,6 @@ class CreateOrderView(generic.FormView):
 
     def form_valid(self, form):
         cart_id = self.request.session.get('cart_id')
-        print(f'cart_id - {cart_id}')
         cart, created = carts_models.Cart.objects.get_or_create(
             pk=cart_id,
             defaults={},

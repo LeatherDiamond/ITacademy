@@ -155,6 +155,9 @@
             <img src="{{ new_book.image.url }}" alt="Solo leveling" width="500" height="500" border="1">
             </div>
         </div>
+        <div>
+          <a href={% url "catalog:book_detail" pk=3 %} class="btn btn-outline-success me4">Get it now!</a>
+        </div>
       </div>
   
       <hr class="featurette-divider">
@@ -163,11 +166,14 @@
         <div class="col-md-7 order-md-2">
           <h2 class="featurette-heading fw-normal lh-1">Oh yeah, the most popular book. <span class="text-muted">See for yourself.</span></h2>
           <p class="lead"> It is three in the morning when Bobby Western zips the jacket of his wet suit and plunges from the Coast Guard tender into darkness. His dive light illuminates the sunken jet, nine bodies still buckled in their seats, hair floating, eyes devoid of speculation. Missing from the crash site are the pilot’s flight bag, the plane’s black box, and the tenth passenger. But how? A collateral witness to machinations that can only bring him harm, Western is shadowed in body and spirit—by men with badges; by the ghost of his father, inventor of the bomb that melted glass and flesh in Hiroshima; and by his sister, the love and ruin of his soul.</p>
+          <div>
+            <a href={% url "catalog:book_detail" pk=10 %} class="btn btn-outline-success me4">Get it now!</a>
+        </div>
         </div>
         <div class="col-md-5 order-md-1">
             <div class="shadow p-3 mb-5 bg-body rounded">
                 <img src="{{ awesome_book.image.url }}" alt="The passenger" width="500" height="500" border="1">
-                </div>
+            </div>
             </div>
           </div>
   
@@ -182,6 +188,9 @@
             <div class="shadow p-3 mb-5 bg-body rounded">
                 <img src="{{ history_book.image.url }}" alt="The secret History" width="500" height="500" border="1">
                 </div>
+            </div>
+            <div>
+              <a href={% url "catalog:book_detail" pk=2 %} class="btn btn-outline-success me4">Get it now!</a>
             </div>
           </div>
   

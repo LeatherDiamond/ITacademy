@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .forms import NewUserForm
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import Group
 
 
 # Create your views here.
@@ -52,6 +53,8 @@ def register_request(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
+            group = Group.objects.get(name='Customers')
+            user.groups.add(group)
             next_param = request.POST.get('next')
             if next_param:
                 url = next_param
