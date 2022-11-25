@@ -100,3 +100,6 @@ class Book(models.Model):
     def clean(self):
         if str(self.date_of_addition) > str(date.today()):
             raise ValidationError({'date_of_addition': 'Must not be later than today!'})
+
+    def __str__(self):
+        return str(self.name)

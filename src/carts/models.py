@@ -9,23 +9,10 @@ User = get_user_model()
 class Cart(models.Model):
     customer = models.ForeignKey(
         User, null=True, blank=True,
-        related_name="Cart",
-        verbose_name="Carts",
+        related_name="Customer",
+        verbose_name="Customer",
         on_delete=models.PROTECT
         )
-    # good = models.ForeignKey(
-    #     Book,
-    #     related_name="good",
-    #     verbose_name="good",
-    #     on_delete=models.PROTECT
-    # )
-    # quantity = models.PositiveIntegerField(
-    #     verbose_name="quantity",
-    # )
-    # total_price_cart = models.IntegerField(
-    #     related_name="total_price_cart",
-    #     verbose_name="total_price_cart",
-    # )
     
 
     @property
@@ -37,10 +24,14 @@ class Cart(models.Model):
         return total_price_cart
 
 
+    def __str__(self):
+        return str(self.pk)
+
+
 class BooksInCart(models.Model):
     cart = models.ForeignKey(
         Cart,
-        related_name="goods",
+        related_name="Cart",
         on_delete=models.CASCADE,
         verbose_name="Cart"
         )

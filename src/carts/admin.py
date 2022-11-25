@@ -3,7 +3,7 @@ from . import models
 
 
 class CartAdmin(admin.ModelAdmin):
-    list_display = ['pk']
+    list_display = ['pk', 'customer']
 
 
 class BookInCartAdmin(admin.ModelAdmin):
