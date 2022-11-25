@@ -13,7 +13,6 @@ class Cart(models.Model):
         verbose_name="Customer",
         on_delete=models.PROTECT
         )
-    
 
     @property
     def total_price_cart(self):
@@ -23,7 +22,6 @@ class Cart(models.Model):
             total_price_cart += good.total_price
         return total_price_cart
 
-
     def __str__(self):
         return str(self.pk)
 
@@ -31,7 +29,7 @@ class Cart(models.Model):
 class BooksInCart(models.Model):
     cart = models.ForeignKey(
         Cart,
-        related_name="Cart",
+        related_name="goods",
         on_delete=models.CASCADE,
         verbose_name="Cart"
         )
