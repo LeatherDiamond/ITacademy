@@ -1,8 +1,11 @@
 from django.db import models
 from django.contrib.sessions.models import Session
-from carts.models import Cart
+from carts.models import Cart, BooksInCart
+from django.contrib.auth import get_user_model
 
 # Create your models here.
+
+User = get_user_model()
 
 class CustomSession(Session):
     cart = models.ForeignKey(
@@ -25,13 +28,19 @@ class Status(models.Model):
 
 
 class Order(models.Model):
+    user = models.ForeignKey(
+        User, 
+        on_delete=models.PROTECT, 
+        related_name='orders'
+        )
     cart = models.OneToOneField(
         Cart,
         on_delete=models.PROTECT,
-        verbose_name="Order"
+        verbose_name="Cart"
     )
-    status = models.ForeignKey(Status,
-    on_delete=models.PROTECT
+    status = models.ForeignKey(
+        Status,
+        on_delete=models.PROTECT
     )
     contact_info = models.TextField(
         verbose_name="Contact info",

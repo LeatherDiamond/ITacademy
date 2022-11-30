@@ -22,10 +22,12 @@ class CreateOrderView(generic.FormView):
             return HttpResponseRedirect(reverse_lazy('carts:cart_edit'))
         info = form.cleaned_data.get('contact_info')
         status = models.Status.objects.get(pk=1)
+        user = self.request.user
         order = models.Order.objects.update_or_create(
             cart=cart,
             contact_info=info,
             status=status,
+            user=user,
         )
         self.request.session.delete('cart_id')
         if self.request.user.is_authenticated:

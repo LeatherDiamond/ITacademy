@@ -28,6 +28,7 @@ urlpatterns = [
     path('search/', SearchResultView.as_view(), name='search_results'),
     path('carts/', include('carts.urls', namespace="carts")),
     path('order/', include('order.urls', namespace="order")),
+    path('profile/', include('app_profiles.urls', namespace="profile")),
 ]
 
 if settings.DEBUG:
