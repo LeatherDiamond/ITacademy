@@ -6,7 +6,8 @@ from . import models
 
 class OrderAdmin(admin.ModelAdmin):
     list_display = [
-        "pk", 
+        "pk",
+        "user", 
         "status",
         "contact_info", 
         "created",

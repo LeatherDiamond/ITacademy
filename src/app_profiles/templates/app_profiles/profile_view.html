@@ -53,12 +53,15 @@ Your profile
                     <tbody>
                 <tr>
                     {% for order in order.all %}
-                    {% comment %} <td>{{ order.book }}</td>
-                    <td>{{ order.quantity }}</td>
+                    <td>{{ order.book }}</td>
+                    {% comment %} <td>{{ order.quantity }}</td>
                     <td>{{ order.price }}</td> {% endcomment %}
                     <td>{{ order.created }}</td>
                     <td>{{ order.updated }}</td>
                     <td>{{ order.status }}</td>
+                    {% endfor %}
+                    {% for cart in cart.all %}
+                    <td>{{ cart }}</td>
                     {% endfor %}
                 </tr>
             </div>
