@@ -35,7 +35,7 @@
               </li>
               {% if perms.product_card.view_book%}
           <li class="nav-item">
-            <a class="nav-link active" href="#">Administrative portal</a>
+            <a class="nav-link active" href="{% url 'admin_portal:admin_portal' %}">Administrative portal</a>
           </li>
           {% endif %}
             </ul>

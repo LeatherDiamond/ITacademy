@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     "catalog",
     "carts",
     "order",
-    "app_profiles"
+    "app_profiles",
+    "admin_portal"
 ]
 
 MIDDLEWARE = [
