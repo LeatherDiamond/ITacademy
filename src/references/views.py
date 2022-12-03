@@ -161,9 +161,8 @@ class DeleteGenre(LoginRequiredMixin, PermissionRequiredMixin, generic.DeleteVie
 
 #CBV Publishing house form.
 
-class ShowHouses(LoginRequiredMixin, PermissionRequiredMixin, generic.ListView):
+class ShowHouses(generic.ListView):
     login_url = 'home_page:login'
-    permission_required = 'references.view_bookpublishinghouse'
     model = models.BookPublishingHouse
     template_name = 'references/list_house.html'
 

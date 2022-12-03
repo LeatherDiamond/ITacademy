@@ -9,7 +9,9 @@
         <h1>List of publishing houses</h1>
     </div>
     </div>
+    {% if perms.references.view_bookpublishinghouse %}
         <td><a href="{% url 'references:house_create' %}" class="btn btn-outline-success mb-3">Create a new publishing house</a></td>
+      {% endif %}
         <div class="shadow p-3 mb-5 bg-body rounded">
         <div class="table-responsive">
         <div class="text-center">
@@ -17,16 +19,20 @@
             <thead>
                 <tr>
                   <th scope="col">Publishing house</th>
+                  {% if perms.references.view_bookpublishinghouse %}
                   <th scope="col">Options</th>
+                  {% endif %}
                 </tr>
               </thead>
             <tbody>
         {% for obj in object_list %}
         <tr>
             <td>{{ obj.house_name }}</td>
+            {% if perms.references.view_bookpublishinghouse %}
             <td><a href="{% url 'references:house_update' pk=obj.pk %}" class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i></a>
                 <a href="{% url 'references:house_delete' pk=obj.pk %}" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#id{{obj.pk}}"><i class="bi bi-x-lg"></i></a></td>
-        </tr>
+              {% endif %}
+              </tr>
                 <!-- Modal -->
 <div class="modal fade" id="id{{obj.pk}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
