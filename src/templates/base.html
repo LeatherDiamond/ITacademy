@@ -32,7 +32,7 @@
             <a class="nav-link active" href="#">Publishing houses</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Profile</a>
+            <a class="nav-link active" href="{% url 'profile:profile_view' pk=user.pk %}">Profile</a>
           </li>
           {% if perms.product_card.view_book%}
           <li class="nav-item">
