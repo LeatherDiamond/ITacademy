@@ -75,3 +75,24 @@ class BookDetail(generic.DetailView):
         return render(request, 'catalog/book_detail.html', context={
             'comment_form': comment_form
         })
+
+
+class GenreGroup(View):
+
+    def get(self, request, *args, **kwargs):
+        genre_horror = Book.objects.filter(genre=1)
+        genre_fantasy = Book.objects.filter(genre=3)
+        genre_detective = Book.objects.filter(genre=4)
+        genre_romance = Book.objects.filter(genre=5)
+        genre_historical = Book.objects.filter(genre=6)
+        return render(
+            request,
+            'catalog/genre_group.html',
+            context={
+                'genre_horror': genre_horror,
+                'genre_fantasy': genre_fantasy,
+                'genre_detective': genre_detective,
+                'genre_romance': genre_romance,
+                'genre_historical': genre_historical,
+            }
+        )

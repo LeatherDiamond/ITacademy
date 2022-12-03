@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block title %}
+Available genres
+{% endblock title %}
+
+{% block content %}
+
+<main>
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Immerse yourself in an exciting world of adventure!</h1>
+          <p class="lead text-muted"> It's sure to please you.</p>
+        </div>
+      </div>
+    </section>
+    <div class="album py-5 bg-light">
+      <div class="container size-fixed">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          {% for genre_fantasy in genre_fantasy.all%}
+          <div class="col">
+            <div class="card shadow-sm">
+               <img src="{{ genre_fantasy.image.url }}" border="1" width="100%" height="500">
+              <div class="card-body">
+                <p class="card-text">{{ genre_fantasy.description }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{% url 'catalog:book_detail' pk=genre_fantasy.pk %}"  type="submit" class="btn btn-sm btn-outline-secondary">View</a>
+                    {% if perms.product_card.view_book%}
+                    <a href="{% url 'product_card:pc_update' pk=genre_fantasy.pk %}" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+</main>
+
+<main>
+      <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Mysterious stories and their denouements.</h1>
+            <p class="lead text-muted"> The detective is definitely not going to be boring.</p>
+          </div>
+        </div>
+      </section>
+      <div class="album py-5 bg-light">
+        <div class="container size-fixed">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for genre_detective in genre_detective.all%}
+            <div class="col">
+              <div class="card shadow-sm">
+                 <img src="{{ genre_detective.image.url }}" border="1" width="100%" height="500">
+                <div class="card-body">
+                  <p class="card-text">{{ genre_detective.description }}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="{% url 'catalog:book_detail' pk=genre_detective.pk %}"  type="submit" class="btn btn-sm btn-outline-secondary">View</a>
+                      {% if perms.product_card.view_book%}
+                      <a href="{% url 'product_card:pc_update' pk=genre_detective.pk %}" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+</main>
+
+
+<main>
+        <section class="py-5 text-center container">
+          <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+              <h1 class="fw-light">Immerse yourself in an unforgettable atmosphere of love and romance.</h1>
+              <p class="lead text-muted"> Romantic books are just for you.</p>
+            </div>
+          </div>
+        </section>
+        <div class="album py-5 bg-light">
+          <div class="container size-fixed">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+              {% for genre_romance in genre_romance.all%}
+              <div class="col">
+                <div class="card shadow-sm">
+                   <img src="{{ genre_romance.image.url }}" border="1" width="100%" height="500">
+                  <div class="card-body">
+                    <p class="card-text">{{ genre_romance.description }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <a href="{% url 'catalog:book_detail' pk=genre_romance.pk %}"  type="submit" class="btn btn-sm btn-outline-secondary">View</a>
+                        {% if perms.product_card.view_book%}
+                        <a href="{% url 'product_card:pc_update' pk=genre_romance.pk %}" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+</main>
+
+
+<main>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Want to tickle your nerves and enjoy a book?</h1>
+        <p class="lead text-muted"> Then this is the section for you.</p>
+      </div>
+    </div>
+  </section>
+  <div class="album py-5 bg-light">
+    <div class="container size-fixed">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for genre_horror in genre_horror.all%}
+        <div class="col">
+          <div class="card shadow-sm">
+             <img src="{{ genre_horror.image.url }}" border="1" width="100%" height="500">
+            <div class="card-body">
+              <p class="card-text">{{ genre_horror.description }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{% url 'catalog:book_detail' pk=genre_horror.pk %}"  type="submit" class="btn btn-sm btn-outline-secondary">View</a>
+                  {% if perms.product_card.view_book%}
+                  <a href="{% url 'product_card:pc_update' pk=genre_horror.pk %}" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+</main>
+
+
+<main>
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">You are fond of history books? You are welcome!</h1>
+      <p class="lead text-muted"> Best history books are waiting for you.</p>
+    </div>
+  </div>
+</section>
+<div class="album py-5 bg-light">
+  <div class="container size-fixed">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {% for genre_historical in genre_historical.all%}
+      <div class="col">
+        <div class="card shadow-sm">
+           <img src="{{ genre_historical.image.url }}" border="1" width="100%" height="500">
+          <div class="card-body">
+            <p class="card-text">{{ genre_historical.description }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <a href="{% url 'catalog:book_detail' pk=genre_historical.pk %}"  type="submit" class="btn btn-sm btn-outline-secondary">View</a>
+                {% if perms.product_card.view_book%}
+                <a href="{% url 'product_card:pc_update' pk=genre_historical.pk %}" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+</main>
+{% endblock content %}
