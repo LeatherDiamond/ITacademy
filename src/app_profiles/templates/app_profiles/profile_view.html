@@ -52,7 +52,7 @@ Your profile
                     </thead>
                     <tbody>
                         <tr>
-                              {% for order in orders %}
+                              {% for order in orders %}</tr>
                                   <td>{{ order.cart.book_names_cart }}</td>
                                   <td>{{ order.cart.total_quantity_cart }}</td>
                                   <td>{{ order.cart.total_price_cart }}</td>
@@ -60,7 +60,7 @@ Your profile
                                   <td>{{ order.updated }}</td>
                                   <td>{{ order.status }}</td>
                               {% endfor %}
-                        </tr>
+                        
                     </tbody>
                 </table>
             </div>
