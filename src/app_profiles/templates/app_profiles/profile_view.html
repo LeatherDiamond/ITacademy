@@ -26,7 +26,7 @@ Your profile
         <h4 class="featurette-heading fw-normal lh-1" >Reserve address:<span class="text-muted"><em> {{ user.reserve_address|default:"No reserve address" }}</h4></em>
         <h4 class="featurette-heading fw-normal lh-1" >Additional info:<span class="text-muted"><em> {{ user.additional_info|default:"No additional info" }}</h4></em>
         <h4 class="featurette-heading fw-normal lh-1" >Group:<span class="text-muted"><em>{% for groups in user.groups.all %} {{ groups }} {% endfor %} </h4></em>
-   
+
         </div>
     </div>
     <hr class="featurette-divider">
@@ -49,24 +49,21 @@ Your profile
                             <th scope="col">Created</th>
                             <th scope="col">Updated</th>
                         </tr>
-                      </thead>
+                    </thead>
                     <tbody>
-                <tr>
-                    {% for order in order.all %}
-                    <td>{{ order.book }}</td>
-                    {% comment %} <td>{{ order.quantity }}</td>
-                    <td>{{ order.price }}</td> {% endcomment %}
-                    <td>{{ order.created }}</td>
-                    <td>{{ order.updated }}</td>
-                    <td>{{ order.status }}</td>
-                    {% endfor %}
-                    {% for cart in cart.all %}
-                    <td>{{ cart }}</td>
-                    {% endfor %}
-                </tr>
+                        <tr>
+                              {% for order in orders %}
+                                  <td>{{ order.cart.book_names_cart }}</td>
+                                  <td>{{ order.cart.total_quantity_cart }}</td>
+                                  <td>{{ order.cart.total_price_cart }}</td>
+                                  <td>{{ order.created }}</td>
+                                  <td>{{ order.updated }}</td>
+                                  <td>{{ order.status }}</td>
+                              {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    </tbody>
-</table>
 {% endblock content %}

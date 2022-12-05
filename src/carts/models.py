@@ -1,7 +1,8 @@
-from django.db import models
 from django.contrib.auth import get_user_model
-from product_card.models import Book
+from django.db import models
+from django.db.models import Sum
 
+from product_card.models import Book
 
 User = get_user_model()
 
@@ -12,15 +13,24 @@ class Cart(models.Model):
         related_name="Customer",
         verbose_name="Customer",
         on_delete=models.PROTECT
-        )
+    )
 
     @property
     def total_price_cart(self):
-        goods = self.goods.all()
+        goods = self.goods.only('quantity', 'price')
         total_price_cart = 0
         for good in goods:
             total_price_cart += good.total_price
         return total_price_cart
+
+    @property
+    def total_quantity_cart(self):
+        goods = self.goods.aggregate(summa=Sum('quantity'))
+        return goods["summa"]
+
+    @property
+    def book_names_cart(self):
+        return ', '.join(self.goods.values_list('book__name', flat=True))
 
     def __str__(self):
         return str(self.pk)
@@ -32,7 +42,7 @@ class BooksInCart(models.Model):
         related_name="goods",
         on_delete=models.CASCADE,
         verbose_name="Cart"
-        )
+    )
     book = models.ForeignKey(
         Book,
         on_delete=models.PROTECT,
