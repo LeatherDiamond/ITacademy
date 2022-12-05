@@ -34,7 +34,7 @@
           </li>
           <li class="nav-item">
             {% if user.is_authenticated %}
-            <a class="nav-link active" href="{% url 'profile:profile_view' pk=user.pk %}">Profile</a>
+            <a class="nav-link active" href="{% url 'profile:profile_view' %}">Profile</a>
             {% endif %}
           </li>
           {% if perms.product_card.view_book%}

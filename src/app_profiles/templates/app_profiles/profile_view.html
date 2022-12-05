@@ -1,75 +1,88 @@
 {% extends "base.html" %}
 
 {% block title %}
-Your profile
+  Your profile
 {% endblock title %}
 
 {% block content %}
-<div class="shadow p-3 mb-5 bg-body rounded">
+  <div class="shadow p-3 mb-5 bg-body rounded">
     <div class="text-center">
-        <h2>Hello {{ user }}!</h2>
+      <h2>Hello {{ user }}!</h2>
     </div>
-</div>
-<div class="shadow p-3 mb-5 bg-body rounded">
+  </div>
+  <div class="shadow p-3 mb-5 bg-body rounded">
     <hr class="featurette-divider">
-    <div class="row featurette">
-        <div class="col-md-7 order-md-2">
-        <h4 class="featurette-heading fw-normal lh-1" >Login:<span class="text-muted"><em> {{ user }}</h4></em>
-        <h4 class="featurette-heading fw-normal lh-1" >Email:<span class="text-muted"><em> {{ user.email }}</h4></em>
-        <h4 class="featurette-heading fw-normal lh-1" >Name:<span class="text-muted"><em> {{ user.name }}</h4></em>
-        <h4 class="featurette-heading fw-normal lh-1" >Surname:<span class="text-muted"><em> {{ user.surname }}</h4></em>
-        <h4 class="featurette-heading fw-normal lh-1" >Phone number:<span class="text-muted"><em> {{ user.phone }}</h4></em>
-        <h4 class="featurette-heading fw-normal lh-1" >Country:<span class="text-muted"><em> {{ user.country }}</h4></em>
-        <h4 class="featurette-heading fw-normal lh-1" >City:<span class="text-muted"><em> {{ user.city }}</h4></em>
-        <h4 class="featurette-heading fw-normal lh-1" >Index:<span class="text-muted"><em> {{ user.index }}</h4></em>
-        <h4 class="featurette-heading fw-normal lh-1" >Address:<span class="text-muted"><em> {{ user.address }}</h4></em>
-        <h4 class="featurette-heading fw-normal lh-1" >Reserve address:<span class="text-muted"><em> {{ user.reserve_address|default:"No reserve address" }}</h4></em>
-        <h4 class="featurette-heading fw-normal lh-1" >Additional info:<span class="text-muted"><em> {{ user.additional_info|default:"No additional info" }}</h4></em>
-        <h4 class="featurette-heading fw-normal lh-1" >Group:<span class="text-muted"><em>{% for groups in user.groups.all %} {{ groups }} {% endfor %} </h4></em>
+    <form method="POST" action="{% url 'app_profiles:profile_view' %}">
+      {% for field in form %}
+        {% csrf_token %}
+        <div class="row featurette">
+          {{ field.errors }}
+          {% if field.help_text %}
+            <p class="help">{{ field.help_text|safe }}</p>
+          {% endif %}
+          {{ field.label_tag }} {{ field }}
+        </div>
+      {% endfor %}
+      <input type="submit" name="submit" value="Save"/>
+    </form>
+    {% if user.groups.all %}
+      <h4 class="featurette-heading fw-normal lh-1">Group:<span
+          class="text-muted"><em>{% for groups in user.groups.all %} {{ groups }} {% endfor %}</em></span></h4>
+    {% endif %}
+  </div>
+  </div>
+  <hr class="featurette-divider">
+  </div>
+  <div class="shadow p-3 mb-5 bg-body rounded">
+    <hr class="featurette-divider">
+    <div class="text-center">
+      <h2>Your orders:</h2>
+    </div>
+    <hr class="featurette-divider">
+    <div class="table-responsive">
+      <div class="text-center">
+        <table class="table table-striped table-hover">
+          <thead>
+          <tr>
+            <th scope="col">Goods</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total price</th>
+            <th scope="col">Contact Info</th>
+            <th scope="col">Created</th>
+            <th scope="col">Updated</th>
+            <th scope="col">Status</th>
+            <th scope="col">Cancel/Activate</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for order in orders %}
+            <tr>
+              <td>{{ order.cart.book_names_cart }}</td>
+              <td>{{ order.cart.total_quantity_cart }}</td>
+              <td>{{ order.cart.total_price_cart }}</td>
+              <td>
+                <form method="POST" action="{% url 'app_profiles:order_contact_info' order.id %}">
+                  {% csrf_token %}
+                  <input type="input" name="contact_info" value="{{ order.contact_info|default:'' }}"/>
+                  <input type="submit" name="submit" value="Update"/>
+                </form>
+              </td>
+              <td>{{ order.created }}</td>
+              <td>{{ order.updated }}</td>
+              <td>{{ order.status }}</td>
+              <td>
+                <form method="POST" action="{% url 'app_profiles:cancel_order' order.id %}">
+                  {% csrf_token %}
+                  <input type="submit" name="submit"
+                         value="{% if order.status.name != 'Cancelled' %}cancel{% else %}activate{% endif %}"/>
+                </form>
+              </td>
+            </tr>
+          {% endfor %}
 
-        </div>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <hr class="featurette-divider">
-</div>
-<div class="shadow p-3 mb-5 bg-body rounded">
-    <hr class="featurette-divider">
-    <div class="text-center">
-        <h2>Your orders:</h2>
-    </div>
-    <hr class="featurette-divider">
-            <div class="table-responsive">
-                <div class="text-center">
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">Goods</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Total price</th>
-                            <th scope="col">Created</th>
-                            <th scope="col">Updated</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                              {% for order in orders %}</tr>
-                                  <td>{{ order.cart.book_names_cart }}</td>
-                                  <td>{{ order.cart.total_quantity_cart }}</td>
-                                  <td>{{ order.cart.total_price_cart }}</td>
-                                  <td>{{ order.created }}</td>
-                                  <td>{{ order.updated }}</td>
-                                  <td>{{ order.status }}</td>
-                                  <td>
-                                    <form method="POST" action="{%url 'app_profiles:cancel_order' %}">
-                                        {% csrf_token %}
-                                    <input id="cancel-{{ order.id }}" type="submit" name="cancel-{{ order.id }}" value="cancel"/>
-                                    </form>
-                                </td>
-                              {% endfor %}
-                        
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+  </div>
 {% endblock content %}

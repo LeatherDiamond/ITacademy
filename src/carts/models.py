@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.db.models import Sum
-
+from django.db.models.functions import Coalesce
 from product_card.models import Book
 
 User = get_user_model()
@@ -25,7 +25,7 @@ class Cart(models.Model):
 
     @property
     def total_quantity_cart(self):
-        goods = self.goods.aggregate(summa=Sum('quantity'))
+        goods = self.goods.aggregate(summa=Coalesce(Sum('quantity'), 0))
         return goods["summa"]
 
     @property

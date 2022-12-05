@@ -2,23 +2,29 @@ from django.db import models
 from django.utils import timezone
 from product_card.models import Book
 from django.contrib.auth.models import User
-from django.contrib.auth.models import AbstractBaseUser, UserManager, PermissionsMixin
+from django.contrib.auth.models import (
+    AbstractBaseUser,
+    UserManager,
+    PermissionsMixin,
+)
+
 
 # Create your models here.
 
 class Comment(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.CASCADE,
-                             related_name='comments')
-    username = models.ForeignKey('AppUser', on_delete=models.CASCADE,
-                                 related_name='user_name')
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='comments')
+    username = models.ForeignKey(
+        'AppUser', on_delete=models.CASCADE,
+        related_name='user_name'
+    )
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return self.text
+
     class Meta:
         ordering = ['-created_date']
-
-        def __str__(self):
-            return self.text
 
 
 class AppUser(AbstractBaseUser, PermissionsMixin):
@@ -38,15 +44,9 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
     reserve_address = models.CharField(blank=True, null=True, max_length=60)
     additional_info = models.CharField(blank=True, null=True, max_length=150)
 
-    is_staff = models.BooleanField(
-        default=False,
-    )
-    is_active = models.BooleanField(
-        default=True,
-    )
-    is_superuser = models.BooleanField(
-        default=False
-    )
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    is_superuser = models.BooleanField(default=False)
 
     objects = UserManager()
 

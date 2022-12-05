@@ -1,23 +1,28 @@
 from django.db import models
 from django.contrib.sessions.models import Session
-from carts.models import Cart, BooksInCart
+from carts.models import (
+    Cart,
+    BooksInCart,
+)
 from django.contrib.auth import get_user_model
 
 # Create your models here.
 
 User = get_user_model()
 
+
 class CustomSession(Session):
     cart = models.ForeignKey(
         Cart,
         on_delete=models.CASCADE
     )
+
     class Meta:
         app_label = 'cart_id'
 
 
 class Status(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, unique=True)
 
     def __str__(self):
         return self.name
@@ -29,10 +34,10 @@ class Status(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(
-        User, 
-        on_delete=models.PROTECT, 
+        User,
+        on_delete=models.PROTECT,
         related_name='orders'
-        )
+    )
     cart = models.OneToOneField(
         Cart,
         on_delete=models.PROTECT,
