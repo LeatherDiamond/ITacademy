@@ -23,7 +23,8 @@ class ProfileView(generic.DetailView):
         )
 
 
-class OrderView(generic.DetailView):
-    login_url = 'home_page:login'
+class CancelOrderView(generic.DeleteView):
     template_name = 'app_profiles/order_view.html'
     model = Order
+
+     
