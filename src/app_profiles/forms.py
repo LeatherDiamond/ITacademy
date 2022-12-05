@@ -39,4 +39,5 @@ class ProfileForm(ModelForm):
             'address',
             'reserve_address',
             'additional_info',
+            'index',
         )

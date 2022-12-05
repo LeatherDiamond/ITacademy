@@ -15,23 +15,23 @@
     <form method="POST" action="{% url 'app_profiles:profile_view' %}">
       {% for field in form %}
         {% csrf_token %}
+        <div class="container">
         <div class="row featurette">
           {{ field.errors }}
-          {% if field.help_text %}
-            <p class="help">{{ field.help_text|safe }}</p>
-          {% endif %}
-          {{ field.label_tag }} {{ field }}
-        </div>
-      {% endfor %}
-      <input type="submit" name="submit" value="Save"/>
+          <strong><em>{{ field.label_tag }}</strong></em> {{ field }}
+    </div>
+</div>
+    {% endfor %}
+      <br>
+      <input type="submit" name="submit" value="Save changes" class="btn btn-outline-success mb-3">
     </form>
+    <br>
     {% if user.groups.all %}
-      <h4 class="featurette-heading fw-normal lh-1">Group:<span
-          class="text-muted"><em>{% for groups in user.groups.all %} {{ groups }} {% endfor %}</em></span></h4>
+      <h4 class="featurette-heading fw-normal lh-1"><strong><em>Group:</strong></em>
+        <span class="text-muted"><em>{% for groups in user.groups.all %} {{ groups }} {% endfor %}</em></span></h4>
     {% endif %}
   </div>
   </div>
-  <hr class="featurette-divider">
   </div>
   <div class="shadow p-3 mb-5 bg-body rounded">
     <hr class="featurette-divider">
@@ -56,6 +56,7 @@
           </thead>
           <tbody>
           {% for order in orders %}
+          <div class="container">
             <tr>
               <td>{{ order.cart.book_names_cart }}</td>
               <td>{{ order.cart.total_quantity_cart }}</td>
@@ -63,8 +64,12 @@
               <td>
                 <form method="POST" action="{% url 'app_profiles:order_contact_info' order.id %}">
                   {% csrf_token %}
-                  <input type="input" name="contact_info" value="{{ order.contact_info|default:'' }}"/>
-                  <input type="submit" name="submit" value="Update"/>
+                  <div class="container">
+                  <input type="input" name="contact_info" value="{{ order.contact_info|default:'' }}" class="form-control">
+                  
+                  <hr class="featurette-divider">
+                  <input type="submit" name="submit" value="Update info" class="btn btn-outline-success mb-3">
+                  </div>
                 </form>
               </td>
               <td>{{ order.created }}</td>
@@ -73,7 +78,7 @@
               <td>
                 <form method="POST" action="{% url 'app_profiles:cancel_order' order.id %}">
                   {% csrf_token %}
-                  <input type="submit" name="submit"
+                  <input type="submit" name="submit" {% if order.status.name != 'Cancelled' %}class="btn btn-outline-danger mb-3"{% else %}class="btn btn-outline-success mb-3"{% endif %}
                          value="{% if order.status.name != 'Cancelled' %}cancel{% else %}activate{% endif %}"/>
                 </form>
               </td>
