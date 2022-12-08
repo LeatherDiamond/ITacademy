@@ -101,7 +101,7 @@
             <div class="carousel-caption text-end">
               <h1>Any genre you want.</h1>
               <p>We are sure to find you a book of any genre.</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+              <p><a class="btn btn-lg btn-primary" href="{% url 'catalog:genre_groups' %}">Learn more</a></p>
             </div>
           </div>
         </div>
@@ -208,11 +208,10 @@
         <div class="shadow p-3 mb-5 bg-body rounded">
         <div class="container">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Shipping</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Special offers</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+            <li class="nav-item"><a href="{%url 'home_page:shipping_info'%}" class="nav-link px-2 text-muted">Shipping</a></li>
+            <li class="nav-item"><a href="{%url 'home_page:about_info'%}" class="nav-link px-2 text-muted">About</a></li>
             </ul>
-          <p class="text-center text-muted">&copy; 2022 LeatherDiamond, Inc</p>
+          <p class="text-center text-muted">&copy; 2022 LeatherDiamond</p>
         </div>
         </div>
     </footer>

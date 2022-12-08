@@ -80,3 +80,11 @@ class HomePage(generic.TemplateView):
         context['awesome_book'] = Book.objects.get(pk=10)
         context['history_book'] = Book.objects.get(pk=2)
         return context
+
+
+class ShippingInfo(generic.TemplateView):
+    template_name = 'home_page/shipping_info.html'
+
+
+class AboutCompany(generic.TemplateView):
+    template_name = 'home_page/about_info.html'
