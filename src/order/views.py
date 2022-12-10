@@ -3,6 +3,7 @@ from django.views import generic
 from . import forms, models
 from carts import models as carts_models
 from django.urls import reverse_lazy
+from trycourier import Courier
 
 # Create your views here.
 
@@ -35,6 +36,22 @@ class CreateOrderView(generic.FormView):
             customer1 = carts_models.Cart.objects.get(pk=cart_id)
             customer1.customer = self.request.user
             customer1.save()
+            client = Courier(auth_token="pk_prod_ZY5TQ360EZ42B4J8414GT35WD75B")
+            resp = client.send_message(
+            message={
+                "to": {
+                    "email": "customerservicewawbookspl@gmail.com"
+          },
+                "content": {
+                "title": "New order",
+                "body": "Hey! {{user}} just placed a new order. Please check administrative portal to see details. {{link}}"
+          },
+          "data":{
+            "user": user.name + ' ' + user.surname,
+            "link": 'https://alexanderdovguchits.pythonanywhere.com/admin_portal/'
+          }
+        }
+      )
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
