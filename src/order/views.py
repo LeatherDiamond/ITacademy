@@ -30,14 +30,8 @@ class CreateOrderView(generic.FormView):
             status=status,
             user=user,
         )
-        self.request.session.delete('cart_id')
-        if self.request.user.is_authenticated:
-            cart_id = self.request.session.get('cart_id')
-            customer1 = carts_models.Cart.objects.get(pk=cart_id)
-            customer1.customer = self.request.user
-            customer1.save()
-            client = Courier(auth_token="pk_prod_ZY5TQ360EZ42B4J8414GT35WD75B")
-            resp = client.send_message(
+        client = Courier(auth_token="pk_prod_ZY5TQ360EZ42B4J8414GT35WD75B")
+        resp = client.send_message(
             message={
                 "to": {
                     "email": "customerservicewawbookspl@gmail.com"
@@ -53,6 +47,12 @@ class CreateOrderView(generic.FormView):
           }
         }
       )
+        self.request.session.delete('cart_id')
+        if self.request.user.is_authenticated:
+            cart_id = self.request.session.get('cart_id')
+            customer1 = carts_models.Cart.objects.get(pk=cart_id)
+            customer1.customer = self.request.user
+            customer1.save()
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
