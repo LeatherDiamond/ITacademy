@@ -34,7 +34,7 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
     )
 
     email = models.EmailField()
-    index = models.IntegerField()
+    index = models.IntegerField(blank=True, null=True)
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     phone = models.IntegerField(help_text="Enter the number in international format.")
