@@ -74,7 +74,7 @@ class MyUserCreationForm(forms.ModelForm):
 
 class NewUserForm(UserCreationForm):
     email = forms.EmailField(required=True)
-    index = forms.IntegerField(required=True)
+    index = forms.IntegerField(required=False)
     name = forms.CharField(required=True, max_length=30)
     surname = forms.CharField(required=True, max_length=30)
     phone = forms.IntegerField(required=True, help_text="Enter the number in international format.")
