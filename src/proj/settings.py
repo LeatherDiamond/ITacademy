@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     "order",
     "app_profiles",
     "admin_portal",
-    'social_django',
+    'social.apps.django_app.default',
 ]
 
 MIDDLEWARE = [
