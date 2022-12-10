@@ -6,7 +6,10 @@
 
 <!--Register--> 
 <div class="container py-5">
-	<h1>Login</h1>
+    <center><a class="buttons-in-row" href="{% url 'social:begin' 'google-oauth2' %}"><img src="https://i.imgur.com/2dywpzc.png" width='20%' class="avatar-3" data-toggle="tooltip" title='Login via Google+'></a></center>
+    <br>
+    <hr class="featurette-divider">
+    <h1>Login</h1>
 	<form method="POST">
         {% if messages %}
         <ul class="messages">

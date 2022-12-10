@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     "carts",
     "order",
     "app_profiles",
-    "admin_portal"
+    "admin_portal",
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -73,6 +74,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                'social_django.context_processors.backends',
             ],
         },
     },
@@ -122,15 +124,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
 STATIC_URL = "static/"
 STATIC_ROOT = '/home/AlexanderDovguchits/ITacademy/src/static'
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = '/home/AlexanderDovguchits/ITacademy/src/media'
-MEDIA_ROOT = BASE_DIR / "media"
+# MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -143,3 +145,11 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 # LOGIN_REDIRECT_URL = '/'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1018402011643-42fntmtfp7oe9j6vdepo1s3hio1frvh6.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
