@@ -34,13 +34,13 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
     )
 
     email = models.EmailField()
-    index = models.IntegerField(blank=True, null=True)
+    index = models.IntegerField(null=True)
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
-    phone = models.IntegerField(help_text="Enter the number in international format.")
-    country = models.CharField(max_length=30)
-    city = models.CharField(max_length=30)
-    address = models.CharField(max_length=60)
+    phone = models.IntegerField(help_text="Enter the number in international format.", null=True)
+    country = models.CharField(null=True, max_length=30)
+    city = models.CharField(null=True, max_length=30)
+    address = models.CharField(null=True, max_length=60)
     reserve_address = models.CharField(blank=True, null=True, max_length=60)
     additional_info = models.CharField(blank=True, null=True, max_length=150)
 
