@@ -44,10 +44,11 @@ class CreateOrderView(generic.FormView):
           },
                 "content": {
                 "title": "New order",
-                "body": "Hey! {{user}} just placed a new order. Please check administrative portal to see details. {{link}}"
+                "body": "Hey! {{user}} {{email}} just placed a new order. Please check administrative portal to see details. {{link}}"
           },
           "data":{
             "user": user.name + ' ' + user.surname,
+            "email": user.email,
             "link": 'https://alexanderdovguchits.pythonanywhere.com/admin_portal/'
           }
         }
