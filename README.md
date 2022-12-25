@@ -1,1 +1,1 @@
-Several small python programs including BMI calculator, digital clock, robot's route calculation (plus decorator and some practical examples of work with strings and principle "expressions are lazy").
+Several small python programs including BMI calculator, digital clock, robot's route calculation (plus decorator and some practical examples of work with strings and "expressions are lazy" principle).
